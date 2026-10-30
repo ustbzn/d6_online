@@ -1,0 +1,140 @@
+TRT-8502-EntropyCalibration2
+img: 43c78349
+depth: 4400f9f3
+/Reshape_output_0: 43c78349
+/backbone/head: 2/net/net.0/Conv_output_0: 45bc009d
+/backbone/head: 2/net/net.2/Sigmoid_output_0: 3c010a14
+/backbone/head: 2/net/net.2/Mul_output_0: 45bc009d
+/backbone/stage: 1 layer3/conv/Conv_output_0: 462cb26b
+/backbone/stage: 1 layer3/act1/Relu_output_0: 4666300f
+/backbone/stage: 2 layer4/conv_exp/Conv_output_0: 4598f5f8
+/backbone/stage: 2 layer4/act1/Sigmoid_output_0: 3a38f1e4
+/backbone/stage: 2 layer4/act1/Mul_output_0: 45317cd6
+/backbone/stage: 2 layer4/conv_pwl/Conv_output_0: 45279375
+/backbone/stage: 2 layer5/conv_exp/Conv_output_0: 44ac9593
+/backbone/stage: 2 layer5/act1/Sigmoid_output_0: 3c010a14
+/backbone/stage: 2 layer5/act1/Mul_output_0: 4481c396
+/backbone/stage: 2 layer5/conv_pwl/Conv_output_0: 450e4f61
+/backbone/stage: 2 layer5/Add_output_0: 45370a11
+/backbone/stage: 3 layer6/conv_exp/Conv_output_0: 44c957a4
+/backbone/stage: 3 layer6/act1/Sigmoid_output_0: 3c010a14
+/backbone/stage: 3 layer6/act1/Mul_output_0: 448c0c6e
+/backbone/stage: 3 layer6/conv_pwl/Conv_output_0: 44bccca9
+/backbone/stage: 3 layer7/conv_exp/Conv_output_0: 441c6ca4
+/backbone/stage: 3 layer7/act1/Sigmoid_output_0: 3c010a14
+/backbone/stage: 3 layer7/act1/Mul_output_0: 44025ee1
+/backbone/stage: 3 layer7/conv_pwl/Conv_output_0: 452937f7
+/backbone/stage: 3 layer7/Add_output_0: 451dcf86
+/backbone/stage: 4 layer8/conv_pw/Conv_output_0: 448ae023
+/backbone/stage: 4 layer8/act1/Sigmoid_output_0: 3c010a14
+/backbone/stage: 4 layer8/act1/Mul_output_0: 441ec443
+/backbone/stage: 4 layer8/conv_dw/Conv_output_0: 44b05de3
+/backbone/stage: 4 layer8/act2/Sigmoid_output_0: 3c010a14
+/backbone/stage: 4 layer8/act2/Mul_output_0: 44cc7665
+/backbone/stage: 4 layer8/se/ReduceMean_output_0: 43763ddc
+/backbone/stage: 4 layer8/se/conv_reduce/Conv_output_0: 44d4e0e2
+/backbone/stage: 4 layer8/se/act1/Sigmoid_output_0: 3c010a14
+/backbone/stage: 4 layer8/se/act1/Mul_output_0: 448356b8
+/backbone/stage: 4 layer8/se/conv_expand/Conv_output_0: 44ee8508
+/backbone/stage: 4 layer8/se/gate/Sigmoid_output_0: 3c010a14
+/backbone/stage: 4 layer8/se/Mul_output_0: 4437358d
+/backbone/stage: 4 layer8/conv_pwl/Conv_output_0: 44c0b122
+/backbone/stage: 5 layer9/conv_pw/Conv_output_0: 44094afd
+/backbone/stage: 5 layer9/act1/Relu_output_0: 4408942a
+/backbone/stage: 5 layer9/conv_dw/Conv_output_0: 44947dee
+/backbone/stage: 5 layer9/act2/Relu_output_0: 44581588
+/backbone/stage: 5 layer9/conv_pwl/Conv_output_0: 44bd89dc
+/backbone/stage: 5 layer10/conv_pw/Conv_output_0: 43fd58c2
+/backbone/stage: 5 layer10/act1/Relu_output_0: 43c3b038
+/backbone/stage: 5 layer10/conv_dw/Conv_output_0: 441a91a6
+/backbone/stage: 5 layer10/act2/Relu_output_0: 444e0662
+/backbone/stage: 5 layer10/conv_pwl/Conv_output_0: 44adf2b3
+/backbone/stage: 5 layer10/Add_output_0: 4501a2f3
+/backbone/stage: 5 layer11/conv_pw/Conv_output_0: 44467db2
+/backbone/stage: 5 layer11/act1/Relu_output_0: 440d96eb
+/backbone/stage: 5 layer11/conv_dw/Conv_output_0: 444f0c63
+/backbone/stage: 5 layer11/act2/Relu_output_0: 444aaa57
+/backbone/stage: 5 layer11/conv_pwl/Conv_output_0: 4479100b
+/backbone/stage: 5 layer11/Add_output_0: 4520f5a7
+/backbone/stage: 5 layer12/conv_pw/Conv_output_0: 44500d60
+/backbone/stage: 5 layer12/act1/Relu_output_0: 44116227
+/backbone/stage: 5 layer12/conv_dw/Conv_output_0: 44733b28
+/backbone/stage: 5 layer12/act2/Relu_output_0: 445143a2
+/backbone/stage: 5 layer12/conv_pwl/Conv_output_0: 444d06f0
+/backbone/stage: 5 layer12/Add_output_0: 452b2f16
+/backbone/stage: 6 layer13/conv_pw/Conv_output_0: 44799580
+/backbone/stage: 6 layer13/act1/Relu_output_0: 4406413e
+/backbone/stage: 6 layer13/conv_dw/Conv_output_0: 4486241c
+/backbone/stage: 6 layer13/act2/Relu_output_0: 4486c5f7
+/backbone/stage: 6 layer13/se/ReduceMean_output_0: 43a2a0bd
+/backbone/stage: 6 layer13/se/conv_reduce/Conv_output_0: 442b9254
+/backbone/stage: 6 layer13/se/act1/Relu_output_0: 44534e3d
+/backbone/stage: 6 layer13/se/conv_expand/Conv_output_0: 4408813a
+/backbone/stage: 6 layer13/se/gate/Sigmoid_output_0: 3c010a14
+/backbone/stage: 6 layer13/se/Mul_output_0: 44667d25
+/backbone/stage: 6 layer13/conv_pwl/Conv_output_0: 444d4815
+/backbone/stage: 6 layer14/conv_pw/Conv_output_0: 43934dfc
+/backbone/stage: 6 layer14/act1/Relu_output_0: 4388b04e
+/backbone/stage: 6 layer14/conv_dw/Conv_output_0: 4499bd03
+/backbone/stage: 6 layer14/act2/Relu_output_0: 4499bd03
+/backbone/stage: 6 layer14/se/ReduceMean_output_0: 442e69b0
+/backbone/stage: 6 layer14/se/conv_reduce/Conv_output_0: 46041238
+/backbone/stage: 6 layer14/se/act1/Relu_output_0: 45fc8157
+/backbone/stage: 6 layer14/se/conv_expand/Conv_output_0: 45ad25e4
+/backbone/stage: 6 layer14/se/gate/Sigmoid_output_0: 3beae5cc
+/backbone/stage: 6 layer14/se/Mul_output_0: 440c01f9
+/backbone/stage: 6 layer14/conv_pwl/Conv_output_0: 43edea59
+/backbone/stage: 6 layer14/Add_output_0: 446a72fc
+/backbone/stage: 6 layer15/conv_pw/Conv_output_0: 43970801
+/backbone/stage: 6 layer15/act1/Relu_output_0: 437eb3fd
+/backbone/stage: 6 layer15/conv_dw/Conv_output_0: 44caf685
+/backbone/stage: 6 layer15/act2/Relu_output_0: 44caf685
+/backbone/stage: 6 layer15/se/ReduceMean_output_0: 442cc9ac
+/backbone/stage: 6 layer15/se/conv_reduce/Conv_output_0: 45d70a59
+/backbone/stage: 6 layer15/se/act1/Relu_output_0: 45d9117c
+/backbone/stage: 6 layer15/se/conv_expand/Conv_output_0: 459a0e95
+/backbone/stage: 6 layer15/se/gate/Sigmoid_output_0: 3c0068d2
+/backbone/stage: 6 layer15/se/Mul_output_0: 440dae24
+/backbone/stage: 6 layer15/conv_pwl/Conv_output_0: 439cc6f8
+/backbone/stage: 6 layer15/Add_output_0: 44719773
+/backbone/stage: 6 layer16/conv_pw/Conv_output_0: 43811564
+/backbone/stage: 6 layer16/act1/Relu_output_0: 4362a6c2
+/backbone/stage: 6 layer16/conv_dw/Conv_output_0: 44647a27
+/backbone/stage: 6 layer16/act2/Relu_output_0: 44963057
+/backbone/stage: 6 layer16/se/ReduceMean_output_0: 4409003c
+/backbone/stage: 6 layer16/se/conv_reduce/Conv_output_0: 45e51d92
+/backbone/stage: 6 layer16/se/act1/Relu_output_0: 45faa213
+/backbone/stage: 6 layer16/se/conv_expand/Conv_output_0: 454fadbf
+/backbone/stage: 6 layer16/se/gate/Sigmoid_output_0: 3c010a14
+/backbone/stage: 6 layer16/se/Mul_output_0: 43524bdf
+/backbone/stage: 6 layer16/conv_pwl/Conv_output_0: 437a6e1b
+/backbone/stage: 6 layer16/Add_output_0: 446dc3d9
+/neck/Resize_output_0: 4458f428
+/neck/Concat_1_output_0: 450ca894
+/neck/lateral_convs.1/conv/Conv_output_0: 440730d3
+/neck/lateral_convs.1/activate/Relu_output_0: 43ac8000
+/neck/fpn_convs.1/conv/Conv_output_0: 437caa68
+/neck/fpn_convs.1/activate/Relu_output_0: 432f8673
+/neck/Resize_1_output_0: 42e245bc
+/neck/Concat_3_output_0: 44bd78a9
+/neck/lateral_convs.0/conv/Conv_output_0: 44229430
+/neck/lateral_convs.0/activate/Relu_output_0: 44229430
+/neck/fpn_convs.0/conv/Conv_output_0: 44311d41
+/neck/fpn_convs.0/activate/Relu_output_0: 43e887f5
+/Reshape_2_output_0: 4400f9f3
+/dtransform/dtransform.0/Conv_output_0: 427fc60e
+/dtransform/dtransform.2/Relu_output_0: 427fc60e
+/dtransform/dtransform.3/Conv_output_0: 429c2f66
+/dtransform/dtransform.5/Relu_output_0: 42ea2020
+/dtransform/dtransform.6/Conv_output_0: 42df9136
+/dtransform/dtransform.8/Relu_output_0: 430bb3b9
+/Concat_output_0: 43c754b4
+/depthnet/depthnet.0/Conv_output_0: 43b1d0c5
+/depthnet/depthnet.2/Relu_output_0: 43739d4d
+/depthnet/depthnet.3/Conv_output_0: 436d35f8
+/depthnet/depthnet.5/Relu_output_0: 436d35f8
+/depthnet/depthnet.6/Conv_output_0: 4389c916
+/Slice_output_0: 439bb2e7
+camera_depth_weights: 3c010a14
+/Slice_1_output_0: 4358d6f5
+camera_feature: 43182fa5

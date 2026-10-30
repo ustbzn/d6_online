@@ -1,0 +1,65 @@
+# ---- 模型权重 ----
+*.pth
+*.pth.tar
+*.pt
+*.ckpt
+*.onnx
+pretrained/
+pth/
+
+# ---- 数据 ----
+data
+data_ori
+det_data_pkl/
+bag_data/
+test_scenes_tag/
+*.pkl
+*.sqlite
+*.h5
+*.npy
+*.npz
+
+# ---- 日志 / 实验输出 ----
+*.log
+event*
+experiments/
+runs/
+runs/**
+build/
+output*/
+res/
+results/
+
+# ---- 可视化产物 ----
+viz/
+viz*
+vis/
+*_vis/
+*_vis/**
+falsedet_miss_visual/
+falsedet_miss_visual_tags/
+visual_gt.sh
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+dist/
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ---- 环境 / IDE ----
+.vscode/
+.idea/
+.DS_Store
+*.swp

@@ -1,0 +1,148 @@
+labels:
+  101: 'road'
+  102: 'sidewalk'
+  103: 'curb side'
+  104: 'parking'
+  105: 'other_flat'
+  201: 'building'
+  202: 'other_structure'
+  301: 'vegetation'
+  302: 'trunk'
+  303: 'terrain'
+  401: 'fence'
+  402: 'pole'
+  403: 'other_nothings'
+  404: 'traffic_light'
+  405: 'ego'
+  1001: 'upright_person'
+  1002: 'deformed_person'
+  1003: 'person_with_things'
+  1004: 'person_inside'
+  2001: 'pushing_person'
+  3001: 'bicycle'
+  3002: 'motorcycle'
+  3003: 'tricycle'
+  3004: 'other_bike'
+  4001: 'bicyclist'
+  4002: 'motorcyclist'
+  4003: 'tricyclist'
+  4004: 'other_rider'
+  5001: 'shed_car'
+  5002: 'mini_car'
+  5003: 'car'
+  5004: 'suv'
+  5005: 'minibus'
+  6001: 'lorry'
+  6002: 'machineshop'
+  6003: 'container'
+  7001: 'small_bus'
+  7002: 'bus'
+  8001: 'movable_obstacle'
+  8002: 'resting_obstacle'
+  8003: 'micro_car'
+  9001: 'conebucket'
+  9002: 'waterhouse'
+  9003: 'bullbarrel'
+  9004: 'construction_sign'
+  9005: 'warning_sign'
+  9006: 'signage'
+  10001: 'rain'
+  10002: 'snow'
+  10003: 'dust'
+  10004: 'fog'
+  10005: 'water_on_air'
+  10006: 'other_noise'
+  10007: 'expansion'
+  0: 'anomaly1'
+  3005: 'anomaly2'
+  5000: 'anomaly3-car'
+labels_mogo:
+  0: 'anomaly'
+  1: 'curb'
+  2: 'building'
+  3: 'vegetation'
+  4: 'fence-pole'
+  5: 'pedestrian'
+  6: 'noise'
+  7: 'bike'
+  8: 'rider'
+  9: ' car'
+  10: 'truck'
+  11: ' bus'
+  12: 'obstacle'
+  13: 'cone'
+  14: 'ground'
+learning_map:
+  103: 1 # curb
+  201: 2 # building
+  202: 2
+  301: 3 # vege
+  302: 3 
+  401: 4 # fence, pole-like obstacle
+  402: 4
+  404: 4
+  1001: 5 # person
+  1002: 5
+  1003: 5
+  1004: 5
+  2001: 5 # pushing ~#
+  3001: 7 # bike
+  3002: 7
+  3003: 7
+  3004: 7
+  4001: 8 # rider
+  4002: 8
+  4003: 8
+  4004: 8
+  5000: 9 # car
+  5001: 9
+  5002: 9
+  5003: 9
+  5004: 9
+  5005: 9
+  6001: 10 # truck
+  6002: 10
+  6003: 10
+  7001: 11 # bus
+  7002: 11
+  8001: 12 # obstacle
+  8002: 12
+  8003: 12
+  403: 12
+  9001: 13 # construction
+  9002: 13
+  9003: 13
+  9004: 13
+  9005: 13
+  9006: 13
+  101: 14 # ground
+  102: 14
+  104: 14
+  105: 14
+  303: 14
+  10001: 6 # noise
+  10002: 6
+  10003: 6
+  10004: 6
+  10005: 6
+  10006: 6
+  10007: 6
+  405: 6
+  0: 0
+  3005: 0
+learning_map_inv: # inverse of previous map
+  0: 0     
+  1: 1     
+  2: 2     
+  3: 3     
+  4: 4     
+  5: 5     
+  6: 6     
+  7: 7     
+  8: 8     
+  9: 9     
+  10: 10    
+  11: 11    
+  12: 12    
+  13: 13   
+  14: 14    

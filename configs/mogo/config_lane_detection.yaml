@@ -1,0 +1,487 @@
+dataset_type: Custom3DLaneDataset
+dataset_root: /turbo/pcpt/data/custom_3d_lane_dataset
+cam_list: ['60_front', '120_front', '120_left', '120_right', '120_back', 'right_back', 'left_back']
+reduce_beams: 32
+load_dim: 4
+use_dim: 4
+load_augmented: null
+
+image_size: [256, 704]
+max_epochs: 20
+
+fp16:
+  loss_scale:
+    growth_interval: 2000
+
+augment2d:
+  resize_train: [[0.184, 0.187],[0.38, 0.42],[0.38, 0.42],[0.38, 0.42],[0.38, 0.55],[0.38, 0.42],[0.38, 0.42]]
+  resize_test: [[0.185, 0.185],[0.4, 0.4],[0.4, 0.4],[0.4, 0.4],[0.47, 0.47],[0.4, 0.4],[0.4, 0.4]]
+  rotate: [-5.4, 5.4]
+  gridmask:
+    prob: 0.0
+    fixed_prob: true
+
+augment3d:
+  scale: [0.9, 1.1]
+  rotate: [-0.78539816, 0.78539816]
+  translate: 0.5
+
+voxel_size: [0.1, 0.1, 0.2]
+point_cloud_range: [-81.6, -48, -1, 97.6, 48, 3.0]
+camera_num: 7
+
+# Lane categories
+lane_classes:
+  - other
+  - solid_single
+  - dashed_single
+  - solid_double
+  - dashed_double
+  - solid_left_dashed_right
+  - dashed_left_solid_right
+  - short_bold_dashed
+
+# Object categories
+object_classes:
+  - person
+  - bike
+  - rider
+  - car
+  - truck
+  - bus
+
+seg:
+  label_mapping: configs/mogo/mogo_21.yaml
+  classes:
+    - ignore
+    - person
+    - bike
+    - rider
+    - car
+    - truck
+    - bus
+    - obstacle
+    - traffic_sign
+    - noise
+    - road
+    - sidewalk
+    - curb
+    - other_flat
+    - building
+    - pole
+    - fence
+    - other_nothings
+    - ego
+    - terrain
+    - vegetation
+  ignore_label: 0
+
+input_modality:
+  use_lidar: true
+  use_camera: true
+  use_radar: false
+  use_map: false
+  use_external: false
+
+train_pipeline:
+  -
+    type: LoadMultiViewImageFromFiles
+    to_float32: true
+  -
+    type: LoadDepthMapsFromFiles
+    to_float32: true
+  -
+    type: LoadPointsFromFile
+    coord_type: LIDAR
+    load_dim: ${load_dim}
+    use_dim: ${use_dim}
+    reduce_beams: ${reduce_beams}
+    load_augmented: ${load_augmented}
+    label_mapping: ${seg.label_mapping}
+    its_mean: [0.0]
+    its_std: [1]
+    with_lidarid: False
+  -
+    type: LoadAnnotations3D
+    with_bbox_3d: true
+    with_label_3d: true
+    with_attr_label: False
+  -
+    type: LoadLaneAnnotations3D
+    lane_classes: ${lane_classes}
+  -
+    type: RandomModalityDrop
+    only_camera_drop: true
+    only_lidar_drop: false
+    drop_rate: 0.2
+  -
+    type: ImageAug3D
+    final_dim: ${image_size}
+    camera_num: ${camera_num}
+    resize_lim: ${augment2d.resize_train}
+    bot_pct_lim: [[0.0, 0.0], [0.12, 0.15], [0.2, 0.25], [0.2, 0.25], [0.15, 0.20],[0.2, 0.25], [0.2, 0.25]]
+    rot_lim: ${augment2d.rotate}
+    rand_flip: true
+    is_train: true
+  -
+    type: GlobalRotScaleTrans
+    resize_lim: ${augment3d.scale}
+    rot_lim: ${augment3d.rotate}
+    trans_lim: ${augment3d.translate}
+    is_train: true
+  -
+    type: PointsRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectNameFilter
+    classes: ${object_classes}
+  -
+    type: LaneRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ImageNormalize
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+  -
+    type: GenerateLaneTargets
+    lane_classes: ${lane_classes}
+    num_points: 20
+    x_range: [-50, 50]
+    y_range: [0, 100]
+    x_interval: 2.0
+    y_interval: 5.0
+    orientations: [-0.5235, -0.2618, 0, 0.2618, 0.5235]
+  -
+    type: DefaultFormatBundle3D
+    classes: ${object_classes}
+  -
+    type: Collect3D
+    keys:
+      - img
+      - points
+      - gt_bboxes_3d
+      - gt_labels_3d
+      - gt_masks_bev
+      - depth_maps
+      - gt_lanes
+      - lane_targets
+      - lane_masks
+      - lane_weights
+    meta_keys:
+      - camera_intrinsics
+      - camera2ego
+      - lidar2ego
+      - lidar2camera
+      - camera2lidar
+      - lidar2image
+      - img_aug_matrix
+      - lidar_aug_matrix
+      - lane_anchors
+
+test_pipeline:
+  # Similar to train_pipeline but without augmentations
+  -
+    type: LoadMultiViewImageFromFiles
+    to_float32: true
+  -
+    type: LoadDepthMapsFromFiles
+    to_float32: true
+  -
+    type: LoadPointsFromFile
+    coord_type: LIDAR
+    load_dim: ${load_dim}
+    use_dim: ${use_dim}
+    reduce_beams: ${reduce_beams}
+    load_augmented: ${load_augmented}
+    label_mapping: ${seg.label_mapping}
+    its_mean: [0.0]
+    its_std: [1]
+    with_lidarid: False
+  -
+    type: LoadAnnotations3D
+    with_bbox_3d: true
+    with_label_3d: true
+    with_attr_label: False
+  -
+    type: LoadLaneAnnotations3D
+    lane_classes: ${lane_classes}
+  -
+    type: ImageAug3D
+    final_dim: ${image_size}
+    camera_num: ${camera_num}
+    resize_lim: ${augment2d.resize_test}
+    bot_pct_lim: [[0.0, 0.0], [0.14, 0.14], [0.22, 0.22], [0.22, 0.22], [0.17, 0.17], [0.22, 0.22], [0.22, 0.22]]
+    rot_lim: [0.0, 0.0]
+    rand_flip: false
+    is_train: false
+  -
+    type: GlobalRotScaleTrans
+    resize_lim: [1.0, 1.0]
+    rot_lim: [0.0, 0.0]
+    trans_lim: 0.0
+    is_train: false
+  -
+    type: PointsRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectNameFilter
+    classes: ${object_classes}
+  -
+    type: LaneRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ImageNormalize
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+  -
+    type: GenerateLaneTargets
+    lane_classes: ${lane_classes}
+    num_points: 20
+    x_range: [-50, 50]
+    y_range: [0, 100]
+    x_interval: 2.0
+    y_interval: 5.0
+    orientations: [-0.5235, -0.2618, 0, 0.2618, 0.5235]
+  -
+    type: DefaultFormatBundle3D
+    classes: ${object_classes}
+  -
+    type: Collect3D
+    keys:
+      - img
+      - points
+      - gt_bboxes_3d
+      - gt_labels_3d
+      - gt_masks_bev
+      - depth_maps
+      - gt_lanes
+      - lane_targets
+      - lane_masks
+      - lane_weights
+    meta_keys:
+      - camera_intrinsics
+      - camera2ego
+      - lidar2ego
+      - lidar2camera
+      - camera2lidar
+      - lidar2image
+      - img_aug_matrix
+      - lidar_aug_matrix
+      - lane_anchors
+
+data:
+  samples_per_gpu: 2
+  workers_per_gpu: 4
+  train:
+    type: ${dataset_type}
+    dataset_root: ${dataset_root}
+    ann_file: ${dataset_root + "/train"}
+    pipeline: ${train_pipeline}
+    lane_classes: ${lane_classes}
+    object_classes: ${object_classes}
+    modality: ${input_modality}
+    test_mode: false
+    box_type_3d: LiDAR
+    cam_list: ${cam_list}
+    label_map_pth: ${seg.label_mapping}
+    ignore_label: ${seg.ignore_label}
+    point_cloud_range: ${point_cloud_range}
+  val:
+    type: ${dataset_type}
+    dataset_root: ${dataset_root}
+    ann_file: ${dataset_root + "/val"}
+    pipeline: ${test_pipeline}
+    lane_classes: ${lane_classes}
+    object_classes: ${object_classes}
+    modality: ${input_modality}
+    test_mode: false
+    post_center_range: ${point_cloud_range}
+    box_type_3d: LiDAR
+    cam_list: ${cam_list}
+    label_map_pth: ${seg.label_mapping}
+    ignore_label: ${seg.ignore_label}
+    point_cloud_range: ${point_cloud_range}
+  test:
+    type: ${dataset_type}
+    dataset_root: ${dataset_root}
+    ann_file: ${dataset_root + "/test"}
+    pipeline: ${test_pipeline}
+    lane_classes: ${lane_classes}
+    object_classes: ${object_classes}
+    modality: ${input_modality}
+    test_mode: true
+    post_center_range: ${point_cloud_range}
+    box_type_3d: LiDAR
+    cam_list: ${cam_list}
+    label_map_pth: ${seg.label_mapping}
+    ignore_label: ${seg.ignore_label}
+    point_cloud_range: ${point_cloud_range}
+
+evaluation:
+  interval: 1000
+  pipeline: ${test_pipeline}
+
+model:
+  type: BEVFusionLane
+  encoders:
+    camera:
+      backbone:
+        type: GPUNetWrapper
+        model_type: GPUNet-1
+        precision: fp16
+        img_height: ${image_size[0]}
+        img_width: ${image_size[1]}
+        out_indices: [5, 10, 14]
+        latency: 0.85ms
+        gpuType: orin
+        batch: 1
+        pretrained: /configs/batch1/GV100/0.85ms.pth.tar
+      neck:
+        in_channels: [96, 288, 448]
+      vtransform:
+        type: DepthAwareViewTransformer
+        xbound: [-81.6, 97.6, 0.4]
+        ybound: [-48.0, 48.0, 0.4]
+        zbound: [-1.0, 3.0, 4.0]
+        dbound: [1.0, 90.0, 0.5]
+        in_channels: 256
+        out_channels: 256
+    lidar:
+      voxelize:
+        point_cloud_range: ${point_cloud_range}
+        voxel_size: ${voxel_size}
+        max_voxels: [200000, 280000]
+      backbone:
+        in_channels: ${use_dim}
+        sparse_shape: [1792, 960, 21]
+        encoder_paddings:
+          - [0, 0, 1]
+          - [0, 0, [1, 1, 0]]
+          - [0, 0, 1]
+          - [0, 0]
+        encoder_strides:
+          - [0, 0, 2]
+          - [0, 0, 2]
+          - [0, 0, [2,2,1]]
+          - [0, 0]
+  fuser:
+    type: ConvFuser
+    in_channels: [256, 256]
+    out_channels: 256
+  decoder:
+    backbone:
+      type: SECOND
+      in_channels: 256
+      out_channels: [128, 64, 128, 256]
+      layer_nums: [1, 2, 3, 1]
+      layer_strides: [1, 1, 2, 2]
+    neck:
+      type: SECONDFPN
+      in_channels: [128, 64, 128, 256]
+      out_channels: [128, 128, 128, 128]
+      out_channel: 128
+      upsample_strides: [1, 1, 2, 2]
+      use_conv_for_no_stride: true
+  heads:
+    object:
+      num_proposals: 200
+      in_channels: 256
+      hidden_channel: 128
+      ffn_channel: 256
+      num_rotcls: 24
+      common_heads:
+        center: [2, 2]
+        height: [1, 2]
+        dim: [3, 2]
+        rotres: [1, 2]
+      num_classes: 6
+      train_cfg:
+        dataset: mogo_at128
+        grid_size: [960, 1792, 21]
+        code_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      test_cfg:
+        dataset: mogo_at128
+        grid_size: [960, 1792, 21]
+        nms_type: rotate
+        nms_thresh: 0.02
+        pre_maxsize: 4096
+        post_maxsize: 500
+      bbox_coder:
+        type: TransFusionBBoxCoder
+        pc_range: ${point_cloud_range[:2]}
+        post_center_range: ${point_cloud_range}
+        score_threshold: 0.1
+        out_size_factor: 8
+        voxel_size: ${voxel_size[:2]}
+        code_size: 8
+      loss_cls: 
+        type: FocalLoss
+        use_sigmoid: true
+        gamma: 2.0
+        alpha: 0.25
+        reduction: mean
+        loss_weight: 0.1
+      loss_heatmap:
+        type: GaussianFocalLoss
+        reduction: mean
+        loss_weight: 0.1
+      loss_bbox:
+        type: L1Loss
+        reduction: mean
+        loss_weight: 0.1
+      loss_rotres:
+        type: SmoothL1Loss
+        reduction: mean
+        loss_weight: 0.2
+      loss_rotcls:
+        type: MultiClassFocalLossWithAlpha
+        gamma: 2.0
+        alpha: [1.0, 1.0,1.0,1.0,1.0,1.0, 1.0, 1.0,1.0,1.0,1.0,1.0, 1.0, 1.0,1.0,1.0,1.0,1.0, 1.0, 1.0,1.0,1.0,1.0,1.0]
+        reduction: mean
+        loss_weight: 0.1
+    map:
+      type: PredBranch
+      cin: 32
+      cmid: 32
+      classes: ${seg.classes}
+      loss: combine
+      loss_weight_lovasz: 3.0
+      loss_weight_ohem: 2.0
+      loss_weight: 0.3
+      ignore_label: ${seg.ignore_label}
+      top_ratio: 0.2
+      top_weight: 3.0
+    lane:
+      type: Lane3DHead
+      in_channels: 256
+      hidden_channels: [128, 64]
+      num_classes: 8  # 8 lane classes
+      num_points: 20  # 20 points per lane
+      loss_cls:
+        type: CrossEntropyLoss
+        reduction: mean
+        loss_weight: 1.0
+      loss_reg:
+        type: SmoothL1Loss
+        reduction: mean
+        loss_weight: 1.0
+      loss_vis:
+        type: BCEWithLogitsLoss
+        reduction: mean
+        loss_weight: 1.0
+
+lr_config:
+  policy: CosineAnnealing
+  warmup: linear
+  warmup_iters: 500
+  warmup_ratio: 0.33333333
+  min_lr_ratio: 1.0e-6
+
+# Use existing checkpoint for initialization
+load_from: /turbo/pcpt/project/lijun/multimodal_bevfusion/experiments/v29_B2_second1231_3dseg_cls21_cam5lidar_intensityraw/latest.pth

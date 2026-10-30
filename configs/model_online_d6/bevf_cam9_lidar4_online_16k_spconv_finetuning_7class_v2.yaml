@@ -1,0 +1,551 @@
+dataset_type: MogoAT128Dataset
+# dataset_root: /pcpt/pcpt/data
+dataset_root: /pcpt/pcpt/D6_1015/pkls/detection
+# calib_path: /rtx/tuchaoping/data/mogo128/vehicle_config_at128.json
+objbank_root: /pcpt/pcpt/data/B22024/bankB22024_20250324_250612allmerge
+
+bag_test: false
+
+# cam_list: ['60_front', '120_front', '120_left', '120_right', '120_back']
+cam_list: ['60_front', '120_front', '120_back', 'left_back', 'right_back', '120_left', '120_right', '60_left_front', '60_right_front']
+#        [(3840, 2160), (1920, 1536), (1920, 1536), (1920, 1536), (1920, 1536), (1920, 1536), (1920, 1536), (1920, 1536), (1920, 1536)]
+gt_paste_stop_epoch: -1
+reduce_beams: 32
+load_dim: 4
+use_dim: 4
+load_augmented: null 
+
+
+image_size: [256, 704]
+max_epochs: 50
+
+fp16:
+  loss_scale:
+    growth_interval: 2000
+
+augment2d:
+  resize_train: [[0.184, 0.186],[0.37, 0.39],[0.37, 0.39],[0.37, 0.39],[0.37, 0.39],[0.37, 0.39],[0.37, 0.39],[0.37, 0.39],[0.37, 0.39]]
+  resize_test: [[0.185, 0.185],[0.38, 0.38],[0.38, 0.38],[0.38, 0.38],[0.38, 0.38],[0.38, 0.38],[0.38, 0.38],[0.38, 0.38],[0.38, 0.38]]
+  rotate: [-5.4, 5.4] # 度
+  gridmask:
+    prob: 0.0
+    fixed_prob: true
+
+augment3d: #点云数据增强 GlobalRotScaleTrans
+  scale: [0.9, 1.1]
+  rotate: [-0.78539816, 0.78539816] # 弧度,10du
+  # scale: [0.95, 1.05]
+  # rotate: [-0.26166666, 0.26166666] # 弧度,10du
+  translate: 0.5
+
+# augment3d: #点云数据增强 GlobalRotScaleTrans
+#   scale: [1.0, 1.0]
+#   rotate: [0.0, 0.0] # 弧度,10du
+#   translate: 0.0
+
+voxel_size: [0.1, 0.1, 0.2]
+point_cloud_range: [-81.6, -48, -1, 97.6, 48, 3.0]
+camera_num: 9
+object_classes:
+  - person
+  - bike
+  - rider
+  - car
+  - truck
+  - bus
+  - tfc_obstacle
+
+seg:
+  label_mapping: configs/mogo/mogo_21.yaml
+  classes:
+    - ignore
+    - person
+    - bike
+    - rider
+    - car
+    - truck
+    - bus
+    - obstacle
+    - traffic_sign
+    - noise
+    - road
+    - sidewalk
+    - curb
+    - other_flat
+    - building
+    - pole
+    - fence
+    - other_nothings
+    - ego
+    - terrain
+    - vegetation
+  ignore_label: 0
+
+input_modality:
+  use_lidar: true
+  use_camera: true
+  use_radar: false
+  use_map: false
+  use_external: false
+
+train_pipeline:
+  -
+    type: LoadMultiViewImageFromFiles
+    to_float32: true
+  -
+    type: LoadPointsFromFile
+    coord_type: LIDAR
+    load_dim: ${load_dim}
+    use_dim: ${use_dim}
+    reduce_beams: ${reduce_beams} #只有在load_augmented有效的情况下才有用
+    load_augmented: ${load_augmented} #null
+    label_mapping: ${seg.label_mapping}
+    its_mean: [0.0]
+    its_std: [1.0]
+    with_lidarid: False
+  -
+    type: LoadAnnotations3D
+    with_bbox_3d: true
+    with_label_3d: true
+    with_attr_label: False
+  # -
+  #   type: CutPasteObj
+  #   ObjBankDir: ${objbank_root}
+  #   category_list: ['person', 'bike', 'rider', 'car', 'truck', 'bus', 'traffic_sign']
+  #   sem_map: ${seg.classes}
+  #   det_list: ["person", "bike", "rider", "car", "truck", "bus"]
+  #   paste_max_obj_num: 20
+  #   paste_min_obj_num: 5
+  #   road_idx: [10, 11]
+  #   things_label_range: [1, 9]
+  #   min_pts_num: 10
+  # -
+  #   type: CutPasteNoise
+  #   ObjBankDir: ${objbank_root}
+  #   category_list: [ ['noise', 1]]
+  #   paste_max_obj_num: 2
+  #   min_pts_num: 5
+  -
+    type: RandomModalityDrop
+    only_camera_drop: true
+    only_lidar_drop: false
+    drop_rate: 0.2
+  -
+    type: ImageAug3D #图像的3D增强
+    final_dim: ${image_size}
+    camera_num: ${camera_num}
+    resize_lim: ${augment2d.resize_train} #resize_lim、bot_pct_lim参数分camera
+    # ['60_front', '120_front', '120_back', 'left_back', 'right_back', '120_left', '120_right', '60_left_front', '60_right_front']
+    bot_pct_lim: [[0.0, 0.0],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.1, 0.14],[0.1, 0.14]]
+    # bot_pct_lim: [[0.0, 0.0],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24],[0.2, 0.24]]
+    rot_lim: ${augment2d.rotate}
+    rand_flip: true
+    is_train: true
+  -
+    # type: GlobalRotScaleTrans #点云数据增强,对data["points"]以及data["gt_bboxes_3d"]进行缩放、旋转、平移操作，并保存转换矩阵
+    # resize_lim: [1.0, 1.0] #缩放区间
+    # rot_lim: [0.0, 0.0] #旋转区间
+    # trans_lim: 0.0 #平移
+    # is_train: false #表示不使用点云数据增强了
+    type: GlobalRotScaleTrans
+    resize_lim: ${augment3d.scale}
+    rot_lim: ${augment3d.rotate}
+    trans_lim: ${augment3d.translate}
+    is_train: true
+  # -
+  #   type: LoadBEVSegmentation
+  #   dataset_root: ${dataset_root}
+  #   scale: ${point_cloud_range}
+  #   resolution: ${voxel_size}
+  #   classes: ${seg.classes}
+  #   ignore_label: ${seg.ignore_label}
+  #   downsample_rate: 4
+  -
+    type: RandomFlipHorizontal3D
+  -
+    type: PointsRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectNameFilter
+    classes: ${object_classes}
+  -
+    type: ImageNormalize
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+  -
+    type: ResamplePoints
+    point_sample_num: 420000
+  # -
+  #   type: Quantize
+  #   points_cloud_range: ${point_cloud_range}
+  #   grid_size: [1792, 960, 21]
+  #   downsample_rate: 4
+  -
+    type: DefaultFormatBundle3D
+    classes: ${object_classes}
+  -
+    type: Collect3D
+    keys:
+      - img
+      - points
+      - gt_bboxes_3d
+      - gt_labels_3d
+      # - gt_masks_bev
+      # - points_labels
+      # - coords_xyz
+      # - points_grid_ind
+      # - scale_rate
+    meta_keys:
+      - camera_intrinsics
+      - camera2ego
+      - lidar2ego
+      - lidar2camera
+      - camera2lidar
+      - lidar2image
+      - img_aug_matrix
+      - lidar_aug_matrix
+
+test_pipeline:
+  -
+    type: LoadMultiViewImageFromFiles
+    to_float32: true
+    is_bag: ${bag_test}
+  -
+    type: LoadPointsFromFile
+    coord_type: LIDAR
+    load_dim: ${load_dim}
+    use_dim: ${use_dim}
+    reduce_beams: ${reduce_beams}
+    load_augmented: ${load_augmented}
+    label_mapping: ${seg.label_mapping}
+    its_mean: [0.0]
+    its_std: [1.0]
+    with_lidarid: False
+  -
+    type: LoadAnnotations3D
+    with_bbox_3d: true
+    with_label_3d: true
+    with_attr_label: False
+  -
+    type: RandomModalityDrop
+    only_camera_drop: true
+    only_lidar_drop: false
+    drop_rate: 0.0
+  -
+    type: ImageAug3D
+    final_dim: ${image_size} #camera数据增强之后，大小变成:[256, 704]
+    camera_num: ${camera_num}
+    resize_lim: ${augment2d.resize_test} #resize_lim、bot_pct_lim参数分camera
+    bot_pct_lim: [[0.0, 0.0],[0.22, 0.22],[0.22, 0.22],[0.22, 0.22],[0.22, 0.22],[0.22, 0.22],[0.22, 0.22],[0.12, 0.12],[0.12, 0.12]]
+    rot_lim: [0.0, 0.0]
+    rand_flip: false
+    is_train: false
+  -
+    type: GlobalRotScaleTrans
+    resize_lim: [1.0, 1.0]
+    rot_lim: [0.0, 0.0]
+    trans_lim: 0.0
+    is_train: false
+  # -
+  #   type: LoadBEVSegmentation
+  #   dataset_root: ${dataset_root}
+  #   scale: ${point_cloud_range}
+  #   resolution: ${voxel_size}
+  #   classes: ${seg.classes}
+  #   ignore_label: ${seg.ignore_label}
+  #   downsample_rate: 4
+  -
+    type: PointsRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectRangeFilter
+    point_cloud_range: ${point_cloud_range}
+  -
+    type: ObjectNameFilter
+    classes: ${object_classes}
+  -
+    type: ImageNormalize
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+  # -
+  #   type: Quantize
+  #   points_cloud_range: ${point_cloud_range}
+  #   grid_size: [1792, 960, 21]
+  #   downsample_rate: 4
+  -
+    type: DefaultFormatBundle3D
+    classes: ${object_classes}
+  -
+    type: Collect3D
+    keys:
+      - img
+      - points
+      - gt_bboxes_3d
+      - gt_labels_3d
+      # - gt_masks_bev
+      # - points_labels
+      # - coords_xyz
+      # - points_grid_ind
+      # - scale_rate
+    meta_keys:
+      - camera_intrinsics #camera内参
+      - camera2ego #camera frame到ego frame坐标转换
+      - lidar2ego #lidar frame到ego frame坐标转换
+      - lidar2camera #lidar到camera的坐标转换
+      - camera2lidar #camera到lidar的坐标转换
+      - lidar2image #lidar到像素坐标系的坐标转换
+      - img_aug_matrix #
+      - lidar_aug_matrix
+      
+
+data:
+  samples_per_gpu: 10
+  workers_per_gpu: 6
+  interval: 1
+  save_best: 'bbox_mAP'
+  max_keep_ckpts: 10  
+  train:
+    type: ${dataset_type}
+    dataset_root: ${dataset_root}
+    # ann_file: ${dataset_root + "/d6_5k_train_bj_3d_d6_S1001779_20251024_train.pkl"}
+    ann_file: ${dataset_root + "/d6_16k_multi_train_bj_3d_d6_S1001779_20251129_train_zn.pkl"}
+    pipeline: ${train_pipeline}
+    object_classes: ${object_classes}
+    modality: ${input_modality}
+    test_mode: false
+    box_type_3d: LiDAR
+    cam_list: ${cam_list}
+    label_map_pth: ${seg.label_mapping}
+    ignore_label: ${seg.ignore_label}
+    point_cloud_range: ${point_cloud_range}
+    min_pts_num: -1 # image bboxes no need this
+  val:
+    type: ${dataset_type} #
+    dataset_root: ${dataset_root} #数据路径
+    # ann_file: ${dataset_root + "/d6_5k_train_bj_3d_d6_S1001779_20251024_val.pkl"}
+    ann_file: ${dataset_root + "/d6_2k_multi_train_bj_3d_d6_S1001779_20251129_val_filtered_zn.pkl"}
+    pipeline: ${test_pipeline} #加载pipeline list
+    object_classes: ${object_classes} #类型列表
+    modality: ${input_modality} #输入模式，具体使用哪些传感器
+    test_mode: ${bag_test}
+    post_center_range: ${point_cloud_range}
+    box_type_3d: LiDAR
+    cam_list: ${cam_list}
+    label_map_pth: ${seg.label_mapping}
+    ignore_label: ${seg.ignore_label}
+    evaluate_by_points: false  # "true" use high mem > 60GB
+    point_cloud_range: ${point_cloud_range}
+    min_pts_num: -1  # image bboxes no need this
+    save_best: ${data.save_best}
+  test:
+    type: ${dataset_type}
+    dataset_root: ${dataset_root}
+    # ann_file: ${dataset_root + "/d6_5k_train_bj_3d_d6_S1001779_20251024_val.pkl"}
+    ann_file: ${dataset_root + "/d6_2k_multi_train_bj_3d_d6_S1001779_20251129_val_filtered_zn.pkl"}
+    pipeline: ${test_pipeline}
+    object_classes: ${object_classes}
+    modality: ${input_modality}
+    test_mode: true
+    post_center_range: ${point_cloud_range}
+    box_type_3d: LiDAR
+    cam_list: ${cam_list}
+    label_map_pth: ${seg.label_mapping}
+    ignore_label: ${seg.ignore_label}
+    evaluate_by_points: true  # "true" use high mem > 60GB
+    point_cloud_range: ${point_cloud_range}
+    min_pts_num: -1 # image bboxes no need this
+
+evaluation:
+  interval: 1000
+  pipeline: ${test_pipeline}
+
+model:
+  encoders:
+    camera:
+      backbone:
+        type: GPUNetWrapper
+        model_type: GPUNet-1
+        precision: fp16
+        img_height: ${image_size[0]}
+        img_width: ${image_size[1]}
+        out_indices: [5, 10, 14]
+        latency: 0.85ms
+        gpuType: orin
+        batch: 1
+        pretrained: /configs/batch1/GV100/0.85ms.pth.tar
+
+      neck:
+        in_channels: [96, 288, 448]
+      vtransform:
+        xbound: [-81.6, 97.6, 0.4]
+        ybound: [-48.0, 48.0, 0.4]
+        zbound: [-1.0, 3.0, 4.0]
+        dbound: [1.0, 90.0, 0.5] #这里需要改,代码比较难改，暂时先不改
+    lidar:
+      voxelize:
+        point_cloud_range: ${point_cloud_range}
+        voxel_size: ${voxel_size}
+        max_voxels: [230000, 280000] #6万左右
+      backbone:
+        in_channels: ${use_dim}
+        sparse_shape: [1792, 960, 21] #先x后y
+        encoder_paddings:
+          - [0, 0, 1]
+          - [0, 0, [1, 1, 0]]
+          - [0, 0, 1]
+          - [0, 0]
+        encoder_strides:
+          - [0, 0, 2]
+          - [0, 0, 2]
+          - [0, 0, [2,2,1]]
+          - [0, 0]
+  # decoder:
+  #   backbone:
+  #     type: SECOND
+  #     in_channels: 256
+  #     out_channels: [128, 64, 96, 128]
+  #     layer_nums: [1, 2, 4, 2]
+  #     layer_strides: [1, 1, 2, 2]
+  #     norm_cfg:
+  #       type: BN
+  #       eps: 1.0e-3
+  #       momentum: 0.01
+  #     conv_cfg:
+  #       type: Conv2d
+  #       bias: false
+  #   neck:
+  #     type: SECONDFPN
+  #     in_channels: [128,64,96,128]
+  #     out_channels: [128,96,128,128]
+  #     upsample_strides: [1,1,2,2]
+  #     norm_cfg:
+  #       type: BN
+  #       eps: 1.0e-3
+  #       momentum: 0.01
+  #     upsample_cfg:
+  #       type: deconv
+  #       bias: false
+  #     use_conv_for_no_stride: true
+  decoder:
+    backbone:
+      type: SECOND
+      in_channels: 256
+      out_channels: [128, 64, 128, 256]
+      # fiters_channels: [256,128, 128, 96]
+      layer_nums: [1, 2, 3, 1]
+      layer_strides: [1, 1, 2, 2]
+    neck:
+      type: SECONDFPN
+      # in_channels: [128, 128, 96, 128]
+      in_channels: [128, 64, 128, 256]
+      out_channels: [128, 128, 128, 128]
+      out_channel: 128
+      #128+256
+      upsample_strides: [1, 1, 2, 2]
+      use_conv_for_no_stride: true
+  fuser_for_seg: null
+    # type: UpsampleConvForSegFuser
+    # in_channels: [256]
+    # mid_channels: 96
+    # out_channels: 32
+  
+  heads:
+    object:
+      num_proposals: 200
+      in_channels: 256
+      hidden_channel: 128
+      ffn_channel: 256
+      num_rotcls: 24
+      common_heads:
+        center: [2, 2]
+        height: [1, 2]
+        dim: [3, 2]
+        rotres: [1, 2]
+        # vel: [2, 2]
+      num_classes: 7
+      train_cfg:
+        dataset: mogo_at128
+        grid_size: [960, 1792, 21]
+        code_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      test_cfg:
+        dataset: mogo_at128
+        grid_size: [960, 1792, 21] #先y后x
+        nms_type: rotate
+        nms_thresh: 0.02
+        pre_maxsize: 4096
+        post_maxsize: 500
+      bbox_coder:
+        type: TransFusionBBoxCoder
+        pc_range: ${point_cloud_range[:2]}
+        post_center_range: ${point_cloud_range}
+        score_threshold: 0.1
+        out_size_factor: 8
+        voxel_size: ${voxel_size[:2]}
+        code_size: 8
+      loss_cls: 
+        type: FocalLoss
+        use_sigmoid: true
+        gamma: 2.0
+        alpha: 0.25
+        reduction: mean
+        loss_weight: 1.0
+      loss_heatmap:
+        type: GaussianFocalLoss
+        reduction: mean
+        loss_weight: 1.0
+      loss_bbox:
+        type: L1Loss
+        reduction: mean
+        loss_weight: 1.0
+        # loss_weight: 0.2
+      loss_rotres:
+        type: SmoothL1Loss
+        reduction: mean
+        loss_weight: 1.0
+      loss_rotcls:
+        type: MultiClassFocalLossWithAlpha
+        gamma: 2.0
+        alpha: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+        reduction: mean
+        loss_weight: 1.0
+        # loss_weight: 0.2
+    # map:
+    #   type: PredBranch
+    #   cin: 32
+    #   cmid: 32
+    #   classes: ${seg.classes}
+    #   loss: combine
+    #   loss_weight_lovasz:  3.0
+    #   loss_weight_ohem: 2.0
+    #   loss_weight: 1.0
+    #   ignore_label: ${seg.ignore_label}
+    #   top_ratio: 0.2
+    #   top_weight: 3.0
+
+optimizer:
+  type: AdamW
+  lr: 2.0e-4
+
+  # lr: 2.0e-5  # fine-tuning
+
+
+lr_config:
+  policy: CosineAnnealing
+  warmup: linear
+  warmup_iters: 500
+
+  warmup_ratio: 0.33333333
+  min_lr_ratio: 1.0e-3
+
+# # 梯度裁剪配置
+# optimizer_config:
+#   grad_clip:
+#     max_norm: 35
+#     norm_type: 2
+ 
+# find_unused_parameters: True
+# resume_from: /pcpt/pcpt/project/atlb/model_online/multimodal_bevfusion/experiments/bevf_cam9_lidar4_online_5k_spconv/epoch_99.pth
+load_from: /pcpt/pcpt/project/atlb/model_online/multimodal_bevfusion/experiments/bevf_cam9_lidar4_online_16k_spconv_finetuning_7class/latest.pth
