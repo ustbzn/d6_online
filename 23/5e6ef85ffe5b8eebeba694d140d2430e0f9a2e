@@ -1,0 +1,971 @@
+.gitignore
+  s_487f31501aa218::t_d96ee400449d0f 1-65
+LICENSE
+  s_487f31501aa218::t_bc659f75e3681e 1-203
+camera.backbone.cache
+  s_487f31501aa218::t_11831a36d97bd8 1-140
+configs/D6/all_sweeper_cam5_lidar4_v1.yaml
+  s_487f31501aa218::t_728ebccddc1cdb 1-519
+configs/D6/all_sweeper_cam5_lidar4_v3.yaml
+  s_487f31501aa218::t_b838cb9c8a0903 1-524
+configs/D6/v1_D6_B22025_all_cam7lidar_voxelpoint50_250731.yaml
+  s_487f31501aa218::t_70346ec5005152 1-517
+configs/D6/v1_D6_B22025_all_cam7lidar_voxelpoint50_250826.yaml
+  s_487f31501aa218::t_4c89074a55ab23 1-517
+configs/D6/v1_D6_B22025_v1-v5_cam7lidar2_intensityraw_v1.yaml
+  s_487f31501aa218::t_adf53ab82859ca 1-522
+configs/D6/v1_D6_c3_1.6k_0.4k_cam5lidar5_voxelpoint50_250808.yaml
+  s_487f31501aa218::t_62883f9c9ff9c5 1-518
+configs/D6/v1_D6_c3_1.6k_0.4k_cam5lidar_voxelpoint50_250808.yaml
+  s_487f31501aa218::t_664b17b523f618 1-518
+configs/D6/v1_D6_c3_2k_cam5lidar_voxelpoint50_250731.yaml
+  s_487f31501aa218::t_9a76e6c5d77b09 1-517
+configs/D6/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax50_newdata_4lidar.yaml
+  s_487f31501aa218::t_39dc039ca1b102 1-532
+configs/D6/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax50_newdata_4lidar_front_rear.yaml
+  s_487f31501aa218::t_760b57e332f94e 1-532
+configs/add_fisheyes/bevf_cam9_lidar4_fisheyes_online_16k_spconv_finetuning_7class.yaml
+  s_487f31501aa218::t_39cb29a61730c3 1-557
+configs/add_hdmap/bevf_cam9_lidar2_online_16k_spconv_finetuning_6class_ep50.yaml
+  s_487f31501aa218::t_3fc0fbef378480 1-590
+configs/add_hdmap/bevf_cam9_lidar2_online_16k_spconv_finetuning_6class_ep50_add_occ.yaml
+  s_487f31501aa218::t_27dbd74c7e99f8 1-731
+configs/add_hdmap/bevf_cam9_lidar2_online_16k_spconv_finetuning_6class_ep50_v2.yaml
+  s_487f31501aa218::t_3d5b19c269c010 1-590
+configs/d6_det_occ/bevf_cam9_lidar2_online_16k_spconv_6class_det_occ.yaml
+  s_487f31501aa218::t_f921b4b90261d7 1-698
+configs/d6_det_occ/bevf_cam9_lidar2_online_16k_spconv_6class_occ.yaml
+  s_487f31501aa218::t_a23b6309cc9768 1-674
+configs/d6_det_occ/v32_B2_occ_v3_d6_ep50_2l_v2.yaml
+  s_487f31501aa218::t_e131417aa297c2 1-590
+configs/default.yaml
+  s_487f31501aa218::t_99e25d235dfcc9 1-220
+configs/model_online_d6/bevf_cam5_lidar4_online_15w_spconv_pretrain.yaml
+  s_487f31501aa218::t_301a02ce842f32 1-551
+configs/model_online_d6/bevf_cam9_lidar2_online_16k_spconv_finetuning_6class_ep50.yaml
+  s_487f31501aa218::t_e1fe45f80b90a3 1-557
+configs/model_online_d6/bevf_cam9_lidar2_online_16k_spconv_finetuning_6class_ep50_for_lhy.yaml
+  s_487f31501aa218::t_cfcf86027cf102 1-560
+configs/model_online_d6/bevf_cam9_lidar2_online_16k_spconv_finetuning_6class_ep50_visual.yaml
+  s_487f31501aa218::t_14089de642b37c 1-562
+configs/model_online_d6/bevf_cam9_lidar4_online.yaml
+  s_487f31501aa218::t_5f43d0b03f1053 1-550
+configs/model_online_d6/bevf_cam9_lidar4_online_14k_spconv_finetuning_data.yaml
+  s_487f31501aa218::t_cf191ea5e76675 1-550
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_11class_ep50.yaml
+  s_487f31501aa218::t_a3f72a0252ff4c 1-561
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_6class.yaml
+  s_487f31501aa218::t_b3753e1b407187 1-554
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_6class_ep50.yaml
+  s_487f31501aa218::t_95bbd3e5225de0 1-557
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_6class_ep50_test_flag.yaml
+  s_487f31501aa218::t_52633064b49dc2 1-559
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_6class_ep50_visual.yaml
+  s_487f31501aa218::t_05a16e6b8445c1 1-559
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_7class.yaml
+  s_487f31501aa218::t_490c376a9be116 1-551
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_7class_ep50.yaml
+  s_487f31501aa218::t_bfe2c740d4cae6 1-556
+configs/model_online_d6/bevf_cam9_lidar4_online_16k_spconv_finetuning_7class_v2.yaml
+  s_487f31501aa218::t_2b95d69354a1c8 1-551
+configs/model_online_d6/bevf_cam9_lidar4_online_5k_spconv.yaml
+  s_487f31501aa218::t_cadbaef97cb872 1-539
+configs/model_online_d6/bevf_cam9_lidar4_online_5k_spconv_visual.yaml
+  s_487f31501aa218::t_31ca2540ca4354 1-542
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv.yaml
+  s_487f31501aa218::t_8ec1a5ffdf7a84 1-539
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv_centerhead.yaml
+  s_487f31501aa218::t_b1e49d2b31da22 1-617
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv_centerhead_visual.yaml
+  s_487f31501aa218::t_d25b5215fd8e0b 1-620
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv_fine-tuning.yaml
+  s_487f31501aa218::t_89187d07f6121b 1-544
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv_fine-tuning_test.yaml
+  s_487f31501aa218::t_d467e01672980f 1-545
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv_fine-tuning_visual.yaml
+  s_487f31501aa218::t_f2fdd7a0630f5f 1-549
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv_finetuning_data_balance.yaml
+  s_487f31501aa218::t_47b051c49ac00d 1-547
+configs/model_online_d6/bevf_cam9_lidar4_online_9k_spconv_finetuning_data_balance_visual.yaml
+  s_487f31501aa218::t_240fd3186ddbe0 1-547
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar.yaml
+  s_487f31501aa218::t_d4d99b88008325 1-583
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep24.yaml
+  s_487f31501aa218::t_91fb2b472a850f 1-583
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_12k.yaml
+  s_487f31501aa218::t_fec4f80b3fffd3 1-576
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_12k_v2.yaml
+  s_487f31501aa218::t_a3346d53389873 1-575
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_12k_v3.yaml
+  s_487f31501aa218::t_378edf5cb3f493 1-588
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_12k_v4.yaml
+  s_487f31501aa218::t_ef5e5b2c80ecb5 1-588
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_16k_7class.yaml
+  s_487f31501aa218::t_e7c101863402e0 1-589
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_16k_7class_v2.yaml
+  s_487f31501aa218::t_51628ac5a5ca05 1-593
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_3k.yaml
+  s_487f31501aa218::t_c38c9f73500c81 1-583
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_3k_no_image.yaml
+  s_487f31501aa218::t_c9465026f07a74 1-583
+configs/model_online_d6/bevf_cam9_lidar4_online_pointpillar_ep50_5k.yaml
+  s_487f31501aa218::t_48b0713468dd7d 1-585
+configs/model_online_d6/bevf_cam9_lidar4_online_v2.yaml
+  s_487f31501aa218::t_ddb9feb99f2a5a 1
+configs/mogo/config_lane_detection.yaml
+  s_487f31501aa218::t_fc54f1add06b98 1-487
+configs/mogo/data.yaml
+  s_487f31501aa218::t_6373610d5af007 1-203
+configs/mogo/label_mapping.yaml
+  s_487f31501aa218::t_a52bf5c787d24a 1-148
+configs/mogo/mogo_21.yaml
+  s_487f31501aa218::t_f5c54aa4f4d4b1 1-141
+configs/mogo/occ_label_mapping_v0.yaml
+  s_487f31501aa218::t_9fc057aa1ccf1a 1-84
+configs/mogo/taxi_mogo_21_revised.yaml
+  s_487f31501aa218::t_257fb70b51ae51 1-135
+configs/mogo/union/v1_C3_B2_t1_lidar_volc_250430.yaml
+  s_487f31501aa218::t_9fe3186986d316 1-523
+configs/mogo/union/v1_C3_B2_t1_lidarcam_volc_250430.yaml
+  s_487f31501aa218::t_bc8ec4dcfc0ac5 1-522
+configs/mogo/union/v1_C3_B2_t1_lidarcam_volc_250430_5cam.yaml
+  s_487f31501aa218::t_4ce462672e3f5c 1-522
+configs/mogo/union/v1_C3_mixB2_cam5lidar_volc_250425.yaml
+  s_487f31501aa218::t_1a0deb69e7b19e 1-515
+configs/mogo/union/v1_C3_mixB2_lidar_volc_25025.yaml
+  s_487f31501aa218::t_691d6d7097c811 1-520
+configs/mogo/v1_C3_cam5lidar.yaml
+  s_487f31501aa218::t_4b7aa7f07bf936 1-515
+configs/mogo/v1_C3_mixB2_cam5lidar.yaml
+  s_487f31501aa218::t_6278026d3c7827 1-515
+configs/mogo/v1_C3_mixB2_cam5lidar_250407.yaml
+  s_487f31501aa218::t_32bb776cd25d6e 1-516
+configs/mogo/v1_C3_mixB2_cam5lidar_250411.yaml
+  s_487f31501aa218::t_9d81231017ee9d 1-516
+configs/mogo/v1_C3_mixB2_cam5lidar_250414.yaml
+  s_487f31501aa218::t_5c3aab07d2ba68 1-516
+configs/mogo/v1_C3_mixB2_cam5lidar_volc_250418.yaml
+  s_487f31501aa218::t_d84f92378e0ae0 1-515
+configs/mogo/v29_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_v2.yaml
+  s_487f31501aa218::t_1e76ab6469d952 1-519
+configs/mogo/v29_B2_second1231_3dseg_cls21_lidar_intensityraw.yaml
+  s_487f31501aa218::t_b7fa0f5b668f0c 1-515
+configs/mogo/v2_C3_mixB2_cam5lidar_250529.yaml
+  s_487f31501aa218::t_1b9f3612a8f118 1-519
+configs/mogo/v2_C3_mixB2_llm45k_cam5lidar_250604.yaml
+  s_487f31501aa218::t_efac87c1a99747 1-519
+configs/mogo/v30_B2_second1231_3dseg_cls21_cam5lidar_intensityraw.yaml
+  s_487f31501aa218::t_9e4d10fb0a4186 1-519
+configs/mogo/v30_B2_second1231_3dseg_cls21_lidar_intensityraw.yaml
+  s_487f31501aa218::t_b3be9c04804d0b 1-519
+configs/mogo/v31_B2_second1231_3dseg_cls21_cam5lidar_intensityraw.yaml
+  s_487f31501aa218::t_c55433b4ccf9d1 1-519
+configs/mogo/v31_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025.yaml
+  s_487f31501aa218::t_f935962f728e0a 1-519
+configs/mogo/v31_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax_v3.yaml
+  s_487f31501aa218::t_307e2850216ce9 1-529
+configs/mogo/v31_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax_v4max50.yaml
+  s_487f31501aa218::t_18ada697c6fcd0 1-529
+configs/mogo/v31_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_v2.yaml
+  s_487f31501aa218::t_6921d921dd071a 1-529
+configs/mogo/v31_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_v2.yaml
+  s_487f31501aa218::t_f558af1325ba2c 1-519
+configs/mogo/v31_B2_second1231_3dseg_cls21_lidar_intensityraw.yaml
+  s_487f31501aa218::t_a88a2931dcf314 1-519
+configs/mogo/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw.yaml
+  s_487f31501aa218::t_d63527d1e133fe 1-520
+configs/mogo/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax50_newdata.yaml
+  s_487f31501aa218::t_f4bd9f50dbaef1 1-531
+configs/mogo/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax50_newdata_lidar.yaml
+  s_487f31501aa218::t_c7a7f6caee66cf 1-530
+configs/mogo/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax50_newdata_v2.yaml
+  s_487f31501aa218::t_e53ecd5237f9a2 1-532
+configs/mogo/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_fromt12025_42wmax50_newdata_v3llm.yaml
+  s_487f31501aa218::t_3afd5c4bc1398a 1-532
+configs/mogo/v32_B2_second1231_3dseg_cls21_cam5lidar_intensityraw_v2.yaml
+  s_487f31501aa218::t_1a646362da5af9 1-520
+configs/mogo/v3_C3_C1_mixB2_45kllm35k_cam5lidar_250710.yaml
+  s_487f31501aa218::t_d4c46b412b4a56 1-519
+configs/mogo/yaml/at128_MM_proposal200_max_voxels_10cmZ20cm_0529pkl_rot45_minPts10_5c_upsampleSegLossWeight2_lm_noFreezegpunet_noLidarFreeze_camDrop02.yaml
+  s_487f31501aa218::t_2e16e3d334e708 1-422
+configs/mogo/yaml/at128_MM_proposal200_max_voxels_10cm_0529pkl_rot45_minPts10_5c_upsampleSegLossWeight2_lm.yaml
+  s_487f31501aa218::t_26939de915fec6 1-397
+configs/mogo/yaml/at128_MM_proposal200_max_voxels_10cm_0529pkl_rot45_minPts10_5c_upsampleSegLossWeight2_lm_Lrange.yaml
+  s_487f31501aa218::t_3150239cf6223d 1-397
+configs/mogo/yaml/at128_MM_proposal200_max_voxels_10cm_0529pkl_rot45_minPts10_5c_upsampleSegLossWeight2_lm_camDrop01.yaml
+  s_487f31501aa218::t_b25d5924723270 1-407
+configs/mogo/yaml/at128_MM_proposal200_max_voxels_10cm_0529pkl_rot45_minPts10_lidaronly_upsampleSegLossWeight2_lm.yaml
+  s_487f31501aa218::t_c04a7ca007769e 1-378
+configs/mogo/yaml/at128_bigfusionpkl_5c_new.yaml
+  s_487f31501aa218::t_8571184326580b 1-315
+configs/mogo/yaml/at128_bigfusionpkl_5c_new_10cm_newpkl_gpunet_augROT45_new_pt15.yaml
+  s_487f31501aa218::t_4021e01129c641 1-325
+configs/mogo/yaml/at128_bigfusionpkl_5c_new_z20cm.yaml
+  s_487f31501aa218::t_007422feeaeb3e 1-329
+configs/mogo/yaml/at128_bigfusionpkl_5c_new_z20cm_gpunet.yaml
+  s_487f31501aa218::t_6dfa65df8d7aa3 1-334
+configs/mogo/yaml/at128_bigfusionpkl_lidaronly.yaml
+  s_487f31501aa218::t_57eb5ffb6163ac 1-365
+configs/mogo/yaml/at128_bigfusionpkl_lidaronly_proposal200_max_voxels_10cm_newpkl.yaml
+  s_487f31501aa218::t_75fb219858c005 1-313
+configs/mogo/yaml/at128_bigfusionpkl_lidaronly_proposal200_max_voxels_10cm_newpkl_rot45.yaml
+  s_487f31501aa218::t_ea25336cc1acd4 1-316
+configs/mogo/yaml/at128_bigfusionpkl_lidaronly_proposal200_max_voxels_z20cm.yaml
+  s_487f31501aa218::t_f9604131f67571 1-322
+configs/mogo/yaml/at128_bigfusionpkl_lidaronly_upsampleSeg.yaml
+  s_487f31501aa218::t_cde3a580a45481 1-374
+configs/mogo/yaml/at128_bigfusionpkl_lidaronly_upsampleSeg_lm.yaml
+  s_487f31501aa218::t_4e6f96f787cbb3 1-368
+configs/mogo/yaml/v20_spconvDownV1.yaml
+  s_487f31501aa218::t_dcf27441e9f83e 1-427
+configs/mogo/yaml/v21_adjust_pointcloud_for_seg.yaml
+  s_487f31501aa218::t_4020b136a78434 1-422
+configs/mogo/yaml/v23_cutPasteNoise.yaml
+  s_487f31501aa218::t_bb172c14ae4c42 1-440
+configs/mogo/yaml/v23_cutPasteNoise_onlycam.yaml
+  s_487f31501aa218::t_07c1d75385dcfc 1-441
+configs/mogo/yaml/v23_cutPasteNoise_onlylidar.yaml
+  s_487f31501aa218::t_29a4f4f7d7e697 1-441
+configs/mogo/yaml/v24_second_3dseg_cls21_camlidar.yaml
+  s_487f31501aa218::t_e36221daa8fbdf 1-480
+configs/mogo/yaml/v24_second_3dseg_cls21_lidar.yaml
+  s_487f31501aa218::t_9b3b62bb1a278b 1-462
+configs/mogo/yaml/v25_second_3dseg_cls21_camlidar.yaml
+  s_487f31501aa218::t_ce11349e3cbb1c 1-473
+configs/mogo/yaml/v26_second2242_cat384_3dseg_cls21_lidar.yaml
+  s_487f31501aa218::t_1a309d92adf568 1-507
+configs/mogo/yaml/v27_second2242_cat384_3dseg_cls21_camlidar.yaml
+  s_487f31501aa218::t_89b1e8249d3b6b 1-507
+configs/mogo/yaml/v27_second2242_cat384_3dseg_cls21_lidar.yaml
+  s_487f31501aa218::t_87bcb663634596 1-508
+configs/mogo/yaml/v28_second1231_min64_cat256_3dseg_cls21_cam5lidar.yaml
+  s_487f31501aa218::t_5532f87f82771e 1-513
+"configs/mogo/yaml/v28_second1231_min64_cat256_3dseg_cls21_cam5lidar_v2 copy.yaml"
+  s_487f31501aa218::t_42e472425ad5a6 1-512
+configs/mogo/yaml/v28_second1231_min64_cat256_3dseg_cls21_cam5lidar_v2.yaml
+  s_487f31501aa218::t_1af9d68f776534 1-512
+configs/mogo/yaml/v28_second1231_min64_cat256_3dseg_cls21_lidar.yaml
+  s_487f31501aa218::t_998806c07e5fb2 1-509
+configs/mogo/yaml/v28_second1231_min64_cat256_3dseg_cls21_lidar_v2.yaml
+  s_487f31501aa218::t_965678b30306ee 1-515
+configs/mogo/yaml/v29_B2_second1231_3dseg_cls21_cam5lidar.yaml
+  s_487f31501aa218::t_82c5f605d55d80 1-517
+configs/mogo/yaml/v29_B2_second1231_3dseg_cls21_cam5lidar_intensityraw.yaml
+  s_487f31501aa218::t_fb3eb7b2d0bfb3 1-515
+configs/mogo/yaml/v5data2CPureclsv4Ptsnum_5class_lidaronly_10cm_4sample.yaml
+  s_487f31501aa218::t_2655e0413ebb6a 1-324
+configs/mogo/yaml/v5data2CPureclsv4Ptsnum_5class_lidaronly_10cm_4sample_cout128.yaml
+  s_487f31501aa218::t_f1eb1e051dd054 1-331
+configs/mogo/yaml/v5data2CPureclsv4Ptsnum_5class_lidaronly_l5_CBGS.yaml
+  s_487f31501aa218::t_0c4df937974add 1-327
+configs/mogo/yaml/v5data2CPureclsv4Ptsnum_5class_lidaronly_stride.yaml
+  s_487f31501aa218::t_048fc7b1d57e9e 1-315
+configs/nuscenes/data.yaml
+  s_487f31501aa218::t_8e4b1c2f2a51e2 1-298
+configs/only_camera/bevf_cam9_lidar2_online_16k_spconv_finetuning_6class.yaml
+  s_487f31501aa218::t_86691c1550f2aa 1-553
+configs/only_camera/bevf_cam9_online_16k_spconv_6class.yaml
+  s_487f31501aa218::t_509c030539b914 1-553
+configs/sweeper/v3_C1_mixB2_45kllm35k_cam7lidar_voxelpoint20_250724.yaml
+  s_487f31501aa218::t_17f716674d2cac 1-520
+configs/sweeper/v3_C3_C1_mixB2_45kllm35k_cam5lidar_voxelpoint50_250711.yaml
+  s_487f31501aa218::t_d430db53807bc1 1-520
+construct_obj_bank/mogo/check_obj_bank.py
+  s_487f31501aa218::t_a404aa1b3213a1 1-46
+construct_obj_bank/mogo/convert_dataset.py
+  s_487f31501aa218::t_561088a07aee34 1-128
+construct_obj_bank/mogo/convert_dataset_postadd.py
+  s_487f31501aa218::t_870887805fc09b 1-104
+construct_obj_bank/mogo/convert_dataset_trainval.py
+  s_487f31501aa218::t_9c5d4d5091744c 1-119
+construct_obj_bank/mogo/extract_obj_bank.py
+  s_487f31501aa218::t_fef0d26f15e5a2 1-62
+construct_obj_bank/mogo/main.py
+  s_487f31501aa218::t_c132dab773c470 1-65
+construct_obj_bank/mogo/main_B2.py
+  s_487f31501aa218::t_adf426934cd750 1-65
+construct_obj_bank/mogo/merge_data.py
+  s_487f31501aa218::t_633fcb000145b1 1-87
+construct_obj_bank/mogo/multi_process.py
+  s_487f31501aa218::t_a62a184150b93e 1-52
+construct_obj_bank/mogo/utils.py
+  s_487f31501aa218::t_cd00049da88cfc 1-256
+construct_obj_bank/mogo/utils_B2.py
+  s_487f31501aa218::t_08798e22396eac 1-254
+custom_tensorboard.py
+  s_487f31501aa218::t_f1b7c7b7b2e540 1
+deal_with_data/check_tf_obstacle.py
+  s_487f31501aa218::t_38c9a8a021e5ef 1-32
+deal_with_data/filter_exists_pkl.py
+  s_487f31501aa218::t_fe0bdd249fc8ad 1-85
+deal_with_data/filter_invalid_jpg.py
+  s_487f31501aa218::t_550b64f4a26b71 1-138
+deal_with_data/generate_npz.py
+  s_487f31501aa218::t_5fa08b41d477ae 1-624
+deal_with_data/get_pkl.py
+  s_487f31501aa218::t_af55eeee4137a2 1-520
+deal_with_data/get_pkl_v2.py
+  s_487f31501aa218::t_cab1bb2230c2ce 1-208
+deal_with_data/images_to_video.py
+  s_487f31501aa218::t_a2a8aba1bf36d7 1-54
+deal_with_data/merge_pkl.py
+  s_487f31501aa218::t_1107a6006b8576 1-270
+deal_with_data/merge_png_v2.py
+  s_487f31501aa218::t_cf42418bab6478 1-105
+deal_with_data/split.py
+  s_487f31501aa218::t_9e9f4e8164bc65 1-330
+dump-data.py
+  s_487f31501aa218::t_82a445c00fc1aa 1-143
+dump_data_B2.py
+  s_487f31501aa218::t_ba24d5e8d1c061 1-143
+eval.sh
+  s_487f31501aa218::t_e42b376c0d39b1 1-28
+extract_hdmap_featrue/ReadME.md
+  s_487f31501aa218::t_d97dd06d35e6f0 1-4
+extract_hdmap_featrue/commonUtils.py
+  s_487f31501aa218::t_c521ba929294fd 1-624
+extract_hdmap_featrue/extract_hdmap_featrue.py
+  s_487f31501aa218::t_8d4886690ad3bc 1-358
+extract_hdmap_featrue/hdmap_featrue_to_tensor.py
+  s_487f31501aa218::t_d30e78db3f9334 1-294
+extract_hdmap_featrue/hdmap_featrue_to_tensor_v2.py
+  s_487f31501aa218::t_117a37ee10779f 1-568
+extract_pkl_info.py
+  s_487f31501aa218::t_edfdc8265f2218 1-78
+gpu2.py
+  s_487f31501aa218::t_6458e2e8fc16be 1-37
+mmdet3d/__init__.py
+  s_487f31501aa218::t_f4fd3ae7abd826 1
+mmdet3d/apis/__init__.py
+  s_487f31501aa218::t_49443c824453e8 1-4
+mmdet3d/apis/test.py
+  s_487f31501aa218::t_39d8c1b8de7ad1 1-36
+mmdet3d/apis/test_det_occ.py
+  s_487f31501aa218::t_a8d44088a7e801 1-218
+mmdet3d/apis/test_seg.py
+  s_487f31501aa218::t_7df2b21c65430a 1-37
+mmdet3d/apis/train.py
+  s_487f31501aa218::t_02d013a6df406a 1-229
+mmdet3d/core/__init__.py
+  s_487f31501aa218::t_12a559cf1423a8 1-6
+mmdet3d/core/anchor/__init__.py
+  s_487f31501aa218::t_8a3927ef435b89 1-13
+mmdet3d/core/anchor/anchor_3d_generator.py
+  s_487f31501aa218::t_d37e958d72d507 1-417
+mmdet3d/core/bbox/__init__.py
+  s_487f31501aa218::t_7882d9bdd5105e 1-14
+mmdet3d/core/bbox/assigners/__init__.py
+  s_487f31501aa218::t_9d936af75be79a 1-4
+mmdet3d/core/bbox/assigners/hungarian_assigner.py
+  s_487f31501aa218::t_e9e6285c7b235e 1-144
+mmdet3d/core/bbox/assigners/hungarian_assigner_3d.py
+  s_487f31501aa218::t_7b7de8a7d8cf93 1-124
+mmdet3d/core/bbox/box_np_ops.py
+  s_487f31501aa218::t_feb7981f760d47 1-892
+mmdet3d/core/bbox/coders/__init__.py
+  s_487f31501aa218::t_741d8fc21ff7ed 1-19
+mmdet3d/core/bbox/coders/anchor_free_bbox_coder.py
+  s_487f31501aa218::t_6465b8238d20d2 1-124
+mmdet3d/core/bbox/coders/centerpoint_bbox_coders.py
+  s_487f31501aa218::t_44f18380cfc29a 1-225
+mmdet3d/core/bbox/coders/delta_xyzwhlr_bbox_coder.py
+  s_487f31501aa218::t_62a1b53907888a 1-88
+mmdet3d/core/bbox/coders/groupfree3d_bbox_coder.py
+  s_487f31501aa218::t_9d21db502a0c95 1-174
+mmdet3d/core/bbox/coders/nms_free_coder.py
+  s_487f31501aa218::t_50df42e71ce9da 1-118
+mmdet3d/core/bbox/coders/partial_bin_based_bbox_coder.py
+  s_487f31501aa218::t_b6b211101c7284 1-232
+mmdet3d/core/bbox/coders/transfusion_bbox_coder.py
+  s_487f31501aa218::t_11b6e6bb01b3ec 1-143
+mmdet3d/core/bbox/iou_calculators/__init__.py
+  s_487f31501aa218::t_55012adcae41ed 1-17
+mmdet3d/core/bbox/iou_calculators/iou3d_calculator.py
+  s_487f31501aa218::t_3d7d6a6548964b 1-323
+mmdet3d/core/bbox/match_costs/__init__.py
+  s_487f31501aa218::t_c75df3033b62c9 1-4
+mmdet3d/core/bbox/match_costs/match_cost.py
+  s_487f31501aa218::t_48537316a38437 1-27
+mmdet3d/core/bbox/samplers/__init__.py
+  s_487f31501aa218::t_0910526610cd46 1-23
+mmdet3d/core/bbox/samplers/iou_neg_piecewise_sampler.py
+  s_487f31501aa218::t_6fba4daa28943b 1-151
+mmdet3d/core/bbox/structures/__init__.py
+  s_487f31501aa218::t_b28ba47788af3a 1-31
+mmdet3d/core/bbox/structures/base_box3d.py
+  s_487f31501aa218::t_243cf8b4ddef7c 1-466
+mmdet3d/core/bbox/structures/box_3d_mode.py
+  s_487f31501aa218::t_3e8adad5c788e1 1-164
+mmdet3d/core/bbox/structures/cam_box3d.py
+  s_487f31501aa218::t_e861c120b89eb4 1-320
+mmdet3d/core/bbox/structures/coord_3d_mode.py
+  s_487f31501aa218::t_46e726825dee10 1-275
+mmdet3d/core/bbox/structures/depth_box3d.py
+  s_487f31501aa218::t_1786789eac09f3 1-354
+mmdet3d/core/bbox/structures/lidar_box3d.py
+  s_487f31501aa218::t_48ae8b988ae896 1-274
+mmdet3d/core/bbox/structures/utils.py
+  s_487f31501aa218::t_eb87f81e13397a 1-231
+mmdet3d/core/bbox/util.py
+  s_487f31501aa218::t_6bcdfd742aa4b9 1-50
+mmdet3d/core/points/__init__.py
+  s_487f31501aa218::t_630a88a515cb91 1-31
+mmdet3d/core/points/base_points.py
+  s_487f31501aa218::t_bcfecf169d92fc 1-445
+mmdet3d/core/points/cam_points.py
+  s_487f31501aa218::t_088077ee0d1e0f 1-72
+mmdet3d/core/points/depth_points.py
+  s_487f31501aa218::t_637b723baa8bb9 1-72
+mmdet3d/core/points/lidar_points.py
+  s_487f31501aa218::t_d6e789d224e008 1-72
+mmdet3d/core/post_processing/__init__.py
+  s_487f31501aa218::t_f07cfd8c6bbe40 1-16
+mmdet3d/core/post_processing/box3d_nms.py
+  s_487f31501aa218::t_da2cbf202e0940 1-219
+mmdet3d/core/utils/__init__.py
+  s_487f31501aa218::t_b23747aa459f2b 1-2
+mmdet3d/core/utils/gaussian.py
+  s_487f31501aa218::t_6310a299f6397e 1-84
+mmdet3d/core/utils/visualize.py
+  s_487f31501aa218::t_7aa4e3700fd674 1-446
+mmdet3d/core/visualizer/__init__.py
+  s_487f31501aa218::t_3ddec3934900f1 1-4
+mmdet3d/core/visualizer/image_vis.py
+  s_487f31501aa218::t_7c1f0f8f8c25cd 1-350
+mmdet3d/core/visualizer/open3d_vis.py
+  s_487f31501aa218::t_d085f78eb8c21d 1-450
+mmdet3d/core/visualizer/show_result.py
+  s_487f31501aa218::t_0b95331255f4b7 1-307
+mmdet3d/core/voxel/__init__.py
+  s_487f31501aa218::t_2b46ebf83ac0fe 1-4
+mmdet3d/core/voxel/builder.py
+  s_487f31501aa218::t_3af7dd05322c73 1-13
+mmdet3d/core/voxel/voxel_generator.py
+  s_487f31501aa218::t_5a0aee2a149132 1-296
+mmdet3d/datasets/__init__.py
+  s_487f31501aa218::t_65830384e91a36 1-13
+mmdet3d/datasets/builder.py
+  s_487f31501aa218::t_25b7d2b79fec97 1-44
+mmdet3d/datasets/custom_3d.py
+  s_487f31501aa218::t_75f594c9fa832f 1-444
+mmdet3d/datasets/dataset_wrappers.py
+  s_487f31501aa218::t_a3c1585d649565 1-77
+mmdet3d/datasets/eval.py
+  s_487f31501aa218::t_879f17f27a5495 1-1271
+mmdet3d/datasets/mogoAT128_dataset.py
+  s_487f31501aa218::t_eeee25bd0b232f 1-621
+mmdet3d/datasets/mogoB2_c3_dataset.py
+  s_487f31501aa218::t_933dbd426eda99 1-783
+mmdet3d/datasets/mogoB2_c3_t1_dataset.py
+  s_487f31501aa218::t_3f6459a90beba9 1-811
+mmdet3d/datasets/mogoB2_dataset.py
+  s_487f31501aa218::t_1e9da16a5ffc58 1-924
+mmdet3d/datasets/mogo_dataset.py
+  s_487f31501aa218::t_1c227f3cb5583c 1-390
+mmdet3d/datasets/nuscenes_dataset.py
+  s_487f31501aa218::t_37d3ae9eae0a9d 1-650
+mmdet3d/datasets/pipelines/__init__.py
+  s_487f31501aa218::t_1e328b2ef00883 1-6
+mmdet3d/datasets/pipelines/dbsampler.py
+  s_487f31501aa218::t_1bc8bb912b7b19 1-323
+mmdet3d/datasets/pipelines/formating.py
+  s_487f31501aa218::t_d45b6adcad1b28 1-202
+mmdet3d/datasets/pipelines/loading.py
+  s_487f31501aa218::t_5db7bafc512b42 1-1075
+mmdet3d/datasets/pipelines/loading_utils.py
+  s_487f31501aa218::t_536b52501bb083 1-107
+mmdet3d/datasets/pipelines/transforms_3d.py
+  s_487f31501aa218::t_528b267bcd9f62 1-1616
+mmdet3d/datasets/pipelines/utils.py
+  s_487f31501aa218::t_48b8a06004043f 1-477
+mmdet3d/datasets/rotate_iou.py
+  s_487f31501aa218::t_b2767f189e95eb 1-330
+mmdet3d/datasets/utils.py
+  s_487f31501aa218::t_98caf9b5831087 1-83
+mmdet3d/hooks/FreezeLayer.py
+  s_487f31501aa218::t_916cf68b23752e 1-24
+mmdet3d/hooks/__init__.py
+  s_487f31501aa218::t_4b70903f15b93f 1-3
+mmdet3d/hooks/check_lidar_lr.py
+  s_487f31501aa218::t_b3b8d9bdb570d5 1-28
+mmdet3d/hooks/pc_grad.py
+  s_487f31501aa218::t_749725e1712413 1-114
+mmdet3d/models/__init__.py
+  s_487f31501aa218::t_7268633efb3d4c 1-8
+mmdet3d/models/backbones/__init__.py
+  s_487f31501aa218::t_4089cff293aa95 1-9
+mmdet3d/models/backbones/configs/__init__.py
+  s_487f31501aa218::t_4012c8bf405968 1
+mmdet3d/models/backbones/configs/batch1/GV100/0.5ms-D.json
+  s_487f31501aa218::t_b6cf1ae4f786f1 1-167
+mmdet3d/models/backbones/configs/batch1/GV100/0.65ms.json
+  s_487f31501aa218::t_e51ff165b9ceef 1-146
+mmdet3d/models/backbones/configs/batch1/GV100/0.85ms.json
+  s_487f31501aa218::t_be8299e66d68ae 1-170
+mmdet3d/models/backbones/configs/batch1/GV100/0.8ms-D.json
+  s_487f31501aa218::t_29996526b32488 1-179
+mmdet3d/models/backbones/configs/batch1/GV100/1.25ms-D.json
+  s_487f31501aa218::t_4cca0cef3f86e5 1-239
+mmdet3d/models/backbones/configs/batch1/GV100/1.75ms.json
+  s_487f31501aa218::t_65b5c4748c48cf 1-364
+mmdet3d/models/backbones/configs/batch1/GV100/2.25ms-D.json
+  s_487f31501aa218::t_14712cd59c667e 1-270
+mmdet3d/models/backbones/configs/batch1/GV100/__init__.py
+  s_487f31501aa218::t_472b866b2df821 1
+mmdet3d/models/backbones/configs/batch1/__init__.py
+  s_487f31501aa218::t_114f3e6d867f87 1
+mmdet3d/models/backbones/configs/batch1/orin/0.85ms.json
+  s_487f31501aa218::t_7e7ab56717cdfa 1-166
+mmdet3d/models/backbones/configs/batch1/orin/0.85ms_resnet_channel.json
+  s_487f31501aa218::t_762ad12c875881 1-166
+mmdet3d/models/backbones/configs/batch1/orin/__init__.py
+  s_487f31501aa218::t_b3837265d94831 1
+mmdet3d/models/backbones/configs/gpunet_torchhub.py
+  s_487f31501aa218::t_482a58d13fc5ff 1-65
+mmdet3d/models/backbones/configs/model_hub.py
+  s_487f31501aa218::t_9d1e5b6066151a 1-172
+mmdet3d/models/backbones/dla.py
+  s_487f31501aa218::t_69987c4b9dafcf 1-354
+mmdet3d/models/backbones/models/__init__.py
+  s_487f31501aa218::t_c048fc3b688c68 1
+mmdet3d/models/backbones/models/gpunet.py
+  s_487f31501aa218::t_f732ab0e8f33e1 1-80
+mmdet3d/models/backbones/models/gpunet_builder.py
+  s_487f31501aa218::t_2a2eb433c8e35b 1-378
+mmdet3d/models/backbones/models/gpunet_modules.py
+  s_487f31501aa218::t_3c6da2e01d4ebb 1-955
+mmdet3d/models/backbones/pillar_encoder.py
+  s_487f31501aa218::t_b199ee59f49d62 1-401
+mmdet3d/models/backbones/pillar_encoder_tmp.py
+  s_487f31501aa218::t_da8502ef7bd3cb 1-326
+mmdet3d/models/backbones/resnet.py
+  s_487f31501aa218::t_9dcb94d0e04be2 1-40
+mmdet3d/models/backbones/second.py
+  s_487f31501aa218::t_e9e5187f198dab 1-114
+mmdet3d/models/backbones/sparse_encoder.py
+  s_487f31501aa218::t_253ef0db7ee4ab 1-244
+mmdet3d/models/backbones/vovnet.py
+  s_487f31501aa218::t_a17132c7b1b21f 1-354
+mmdet3d/models/builder.py
+  s_487f31501aa218::t_0fba1f324b4e5c 1-41
+mmdet3d/models/fusers/__init__.py
+  s_487f31501aa218::t_234a1d8712d93c 1-6
+mmdet3d/models/fusers/add.py
+  s_487f31501aa218::t_02ce90ab934f03 1-40
+mmdet3d/models/fusers/conv.py
+  s_487f31501aa218::t_ce7b9bb6024cd6 1-23
+mmdet3d/models/fusers/conv_weight.py
+  s_487f31501aa218::t_8b182519512794 1-24
+mmdet3d/models/fusers/senet.py
+  s_487f31501aa218::t_66db07080d6bf8 1-48
+mmdet3d/models/fusers/upsample_conv_for_lidar.py
+  s_487f31501aa218::t_6413a1d3703491 1-45
+mmdet3d/models/fusers/upsample_conv_for_occ.py
+  s_487f31501aa218::t_531704bc2ff333 1-206
+mmdet3d/models/fusers/upsample_conv_for_seg.py
+  s_487f31501aa218::t_7863b60a0eb832 1-51
+mmdet3d/models/fusion_models/__init__.py
+  s_487f31501aa218::t_eb1fbec34797b1 1-3
+mmdet3d/models/fusion_models/base.py
+  s_487f31501aa218::t_c00a401081bb06 1-97
+mmdet3d/models/fusion_models/bevfusion.py
+  s_487f31501aa218::t_432c9613afcbf1 1-425
+mmdet3d/models/fusion_models/bevfusion_seg.py
+  s_487f31501aa218::t_0e7a8100ecc2a8 1-708
+mmdet3d/models/heads/__init__.py
+  s_487f31501aa218::t_ea3db5508c5310 1-3
+mmdet3d/models/heads/bbox/__init__.py
+  s_487f31501aa218::t_85223a1e68d358 1-2
+mmdet3d/models/heads/bbox/centerpoint.py
+  s_487f31501aa218::t_46245db6067ae5 1-924
+mmdet3d/models/heads/bbox/centerpoint_backup.py
+  s_487f31501aa218::t_6256f35cc207c5 1-884
+mmdet3d/models/heads/bbox/transfusion.py
+  s_487f31501aa218::t_efd0c370e409c6 1-957
+mmdet3d/models/heads/occ/__init__.py
+  s_487f31501aa218::t_a6577293426f2d 1
+mmdet3d/models/heads/occ/bev_occ_head.py
+  s_487f31501aa218::t_c06cfcffa8269f 1-248
+mmdet3d/models/heads/segm/__init__.py
+  s_487f31501aa218::t_172a82beecba16 1
+mmdet3d/models/heads/segm/vanilla.py
+  s_487f31501aa218::t_8654e197d5a54c 1-296
+mmdet3d/models/losses/__init__.py
+  s_487f31501aa218::t_175532003a26dd 1-13
+mmdet3d/models/losses/lovasz_geo_sem_loss.py
+  s_487f31501aa218::t_b9805f7e02b73c 1-244
+mmdet3d/models/losses/multiclass_focalloss_withalpha.py
+  s_487f31501aa218::t_5914f5253b7a12 1-41
+mmdet3d/models/necks/__init__.py
+  s_487f31501aa218::t_98e95759e383ed 1-5
+mmdet3d/models/necks/detectron_fpn.py
+  s_487f31501aa218::t_0f7a4c329d9a05 1-137
+mmdet3d/models/necks/generalized_lss.py
+  s_487f31501aa218::t_474ed72bd04709 1-103
+mmdet3d/models/necks/lss.py
+  s_487f31501aa218::t_f0fe9cbaaa00fb 1-65
+mmdet3d/models/necks/secondfpn.py
+  s_487f31501aa218::t_175cb74e64d92e 1-212
+mmdet3d/models/utils/__init__.py
+  s_487f31501aa218::t_d39d1d2a8b1cf6 1
+mmdet3d/models/utils/flops_counter.py
+  s_487f31501aa218::t_8f7ed97f1f6142 1-126
+mmdet3d/models/utils/transformer.py
+  s_487f31501aa218::t_5449e88e68f593 1-576
+mmdet3d/models/vtransforms/__init__.py
+  s_487f31501aa218::t_db5b3ce933d099 1-2
+mmdet3d/models/vtransforms/base.py
+  s_487f31501aa218::t_4e0f7bb11d63e5 1-346
+mmdet3d/models/vtransforms/depth_lss.py
+  s_487f31501aa218::t_50a9d2cc27ac4c 1-164
+mmdet3d/models/vtransforms/lss.py
+  s_487f31501aa218::t_fc38d2d38512e4 1-78
+mmdet3d/ops/__init__.py
+  s_487f31501aa218::t_902a13b5c13707 1-92
+mmdet3d/ops/ball_query/__init__.py
+  s_487f31501aa218::t_d6c489acbad742 1-3
+mmdet3d/ops/ball_query/ball_query.py
+  s_487f31501aa218::t_aab1fa7db6b67c 1-54
+mmdet3d/ops/ball_query/src/ball_query.cpp
+  s_487f31501aa218::t_29503b1b2154e2 1-50
+mmdet3d/ops/ball_query/src/ball_query_cuda.cu
+  s_487f31501aa218::t_623ce9e1128b93 1-78
+mmdet3d/ops/bev_pool/__init__.py
+  s_487f31501aa218::t_2b8b932782db87 1
+mmdet3d/ops/bev_pool/bev_pool.py
+  s_487f31501aa218::t_90a59f46f1d5c1 1-97
+mmdet3d/ops/bev_pool/src/bev_pool.cpp
+  s_487f31501aa218::t_68d40d0c608930 1-94
+mmdet3d/ops/bev_pool/src/bev_pool_cuda.cu
+  s_487f31501aa218::t_1520210931cd4d 1-98
+mmdet3d/ops/furthest_point_sample/__init__.py
+  s_487f31501aa218::t_fc333b66e7518b 1-4
+mmdet3d/ops/furthest_point_sample/furthest_point_sample.py
+  s_487f31501aa218::t_43d0062d05857a 1-78
+mmdet3d/ops/furthest_point_sample/points_sampler.py
+  s_487f31501aa218::t_2e02fc8a6a9a3e 1-157
+mmdet3d/ops/furthest_point_sample/src/furthest_point_sample.cpp
+  s_487f31501aa218::t_b198ecabad5c3f 1-67
+mmdet3d/ops/furthest_point_sample/src/furthest_point_sample_cuda.cu
+  s_487f31501aa218::t_13149c7f998185 1-400
+mmdet3d/ops/furthest_point_sample/utils.py
+  s_487f31501aa218::t_c8c320d5176c5e 1-31
+mmdet3d/ops/gather_points/__init__.py
+  s_487f31501aa218::t_1d8532bac8c681 1-3
+mmdet3d/ops/gather_points/gather_points.py
+  s_487f31501aa218::t_a2617a4dc0de58 1-50
+mmdet3d/ops/gather_points/src/gather_points.cpp
+  s_487f31501aa218::t_baeded1d7bc28a 1-61
+mmdet3d/ops/gather_points/src/gather_points_cuda.cu
+  s_487f31501aa218::t_e329733ffc5148 1-94
+mmdet3d/ops/group_points/__init__.py
+  s_487f31501aa218::t_a07c2b4a76df62 1-3
+mmdet3d/ops/group_points/group_points.py
+  s_487f31501aa218::t_a40ba5272b7631 1-220
+mmdet3d/ops/group_points/src/group_points.cpp
+  s_487f31501aa218::t_80c2cae9622e9e 1-65
+mmdet3d/ops/group_points/src/group_points_cuda.cu
+  s_487f31501aa218::t_b1fd9ccdb7d3bc 1-101
+mmdet3d/ops/interpolate/__init__.py
+  s_487f31501aa218::t_c344b7935d942a 1-4
+mmdet3d/ops/interpolate/src/interpolate.cpp
+  s_487f31501aa218::t_d3160a6924be22 1-96
+mmdet3d/ops/interpolate/src/three_interpolate_cuda.cu
+  s_487f31501aa218::t_45de9e3fcfd69f 1-108
+mmdet3d/ops/interpolate/src/three_nn_cuda.cu
+  s_487f31501aa218::t_caa31c8bc6b8fa 1-89
+mmdet3d/ops/interpolate/three_interpolate.py
+  s_487f31501aa218::t_6bbf4e1cceff33 1-59
+mmdet3d/ops/interpolate/three_nn.py
+  s_487f31501aa218::t_361bfbc8381d04 1-45
+mmdet3d/ops/iou3d/__init__.py
+  s_487f31501aa218::t_985cd7f9b86fe6 1-3
+mmdet3d/ops/iou3d/iou3d_utils.py
+  s_487f31501aa218::t_15ad58f61edc69 1-68
+mmdet3d/ops/iou3d/src/iou3d.cpp
+  s_487f31501aa218::t_2063afd4894a36 1-210
+mmdet3d/ops/iou3d/src/iou3d_kernel.cu
+  s_487f31501aa218::t_0f6897885f2e9c 1-439
+mmdet3d/ops/knn/__init__.py
+  s_487f31501aa218::t_02bca35f88d7e1 1-3
+mmdet3d/ops/knn/knn.py
+  s_487f31501aa218::t_bf0a9da4152dd3 1-71
+mmdet3d/ops/knn/src/knn.cpp
+  s_487f31501aa218::t_b36e5569b7c73d 1-49
+mmdet3d/ops/knn/src/knn_cuda.cu
+  s_487f31501aa218::t_6f3b20e32335b3 1-115
+mmdet3d/ops/norm.py
+  s_487f31501aa218::t_216f91293d2ea1 1-130
+mmdet3d/ops/paconv/__init__.py
+  s_487f31501aa218::t_1fe07ebf3adc81 1-4
+mmdet3d/ops/paconv/assign_score.py
+  s_487f31501aa218::t_929849386f338a 1-116
+mmdet3d/ops/paconv/paconv.py
+  s_487f31501aa218::t_606c9cf10273ac 1-396
+mmdet3d/ops/paconv/src/assign_score_withk.cpp
+  s_487f31501aa218::t_4384dfcba5a885 1-36
+mmdet3d/ops/paconv/src/assign_score_withk_cuda.cu
+  s_487f31501aa218::t_3dc6d078fd9fab 1-212
+mmdet3d/ops/paconv/utils.py
+  s_487f31501aa218::t_a75a0051a28246 1-89
+mmdet3d/ops/pointnet_modules/__init__.py
+  s_487f31501aa218::t_9d4af49a3c9a59 1-20
+mmdet3d/ops/pointnet_modules/builder.py
+  s_487f31501aa218::t_00c210744f4c4d 1-38
+mmdet3d/ops/pointnet_modules/paconv_sa_module.py
+  s_487f31501aa218::t_e544aac9c52b47 1-348
+mmdet3d/ops/pointnet_modules/point_fp_module.py
+  s_487f31501aa218::t_73d05540b6c4af 1-79
+mmdet3d/ops/pointnet_modules/point_sa_module.py
+  s_487f31501aa218::t_b1d649d29dbad3 1-354
+mmdet3d/ops/roiaware_pool3d/__init__.py
+  s_487f31501aa218::t_5ccb2cbf652f07 1-4
+mmdet3d/ops/roiaware_pool3d/points_in_boxes.py
+  s_487f31501aa218::t_518f28a4419398 1-122
+mmdet3d/ops/roiaware_pool3d/roiaware_pool3d.py
+  s_487f31501aa218::t_113ff7dded3186 1-108
+mmdet3d/ops/roiaware_pool3d/src/points_in_boxes_cpu.cpp
+  s_487f31501aa218::t_323d2adfc0444f 1-69
+mmdet3d/ops/roiaware_pool3d/src/points_in_boxes_cuda.cu
+  s_487f31501aa218::t_8f49bd1b5441bc 1-203
+mmdet3d/ops/roiaware_pool3d/src/roiaware_pool3d.cpp
+  s_487f31501aa218::t_56c50c12420a17 1-136
+mmdet3d/ops/roiaware_pool3d/src/roiaware_pool3d_kernel.cu
+  s_487f31501aa218::t_a680f8171b70aa 1-366
+mmdet3d/ops/sparse_block.py
+  s_487f31501aa218::t_b08bb4f8164a4c 1-176
+mmdet3d/ops/spconv/__init__.py
+  s_487f31501aa218::t_1240bce3088cf0 1-44
+mmdet3d/ops/spconv/conv.py
+  s_487f31501aa218::t_d2fa8da17f99ef 1-491
+mmdet3d/ops/spconv/functional.py
+  s_487f31501aa218::t_36cfb17696c425 1-123
+mmdet3d/ops/spconv/include/paramsgrid.h
+  s_487f31501aa218::t_160946da129d88 1-68
+mmdet3d/ops/spconv/include/prettyprint.h
+  s_487f31501aa218::t_444132a2678659 1-493
+mmdet3d/ops/spconv/include/pybind11_utils.h
+  s_487f31501aa218::t_878b06e9b47b20 1-61
+mmdet3d/ops/spconv/include/spconv/fused_spconv_ops.h
+  s_487f31501aa218::t_a473ade122dd53 1-134
+mmdet3d/ops/spconv/include/spconv/geometry.h
+  s_487f31501aa218::t_a58b9638d3a49c 1-301
+mmdet3d/ops/spconv/include/spconv/indice.cu.h
+  s_487f31501aa218::t_4d25eb83001c8d 1-238
+mmdet3d/ops/spconv/include/spconv/indice.h
+  s_487f31501aa218::t_ac9b9ffdf7b31e 1-80
+mmdet3d/ops/spconv/include/spconv/maxpool.h
+  s_487f31501aa218::t_ddaf6724d39255 1-39
+mmdet3d/ops/spconv/include/spconv/mp_helper.h
+  s_487f31501aa218::t_b7f63cb5469d80 1-51
+mmdet3d/ops/spconv/include/spconv/point2voxel.h
+  s_487f31501aa218::t_f4eff626ba6580 1-397
+mmdet3d/ops/spconv/include/spconv/pool_ops.h
+  s_487f31501aa218::t_8a9f856b87a9a6 1-98
+mmdet3d/ops/spconv/include/spconv/reordering.cu.h
+  s_487f31501aa218::t_2f1ea28d80914b 1-161
+mmdet3d/ops/spconv/include/spconv/reordering.h
+  s_487f31501aa218::t_e27ea446e475a7 1-38
+mmdet3d/ops/spconv/include/spconv/spconv_ops.h
+  s_487f31501aa218::t_56bb214de633c0 1-592
+mmdet3d/ops/spconv/include/tensorview/helper_kernel.cu.h
+  s_487f31501aa218::t_739cacae4651b8 1-73
+mmdet3d/ops/spconv/include/tensorview/helper_launch.h
+  s_487f31501aa218::t_06e94381b237c4 1-21
+mmdet3d/ops/spconv/include/tensorview/tensorview.h
+  s_487f31501aa218::t_812240196a7d32 1-1163
+mmdet3d/ops/spconv/include/torch_utils.h
+  s_487f31501aa218::t_72d400f12687e0 1-71
+mmdet3d/ops/spconv/include/utility/timer.h
+  s_487f31501aa218::t_f6965ee11ddecd 1-54
+mmdet3d/ops/spconv/modules.py
+  s_487f31501aa218::t_ccab928f042c39 1-205
+mmdet3d/ops/spconv/ops.py
+  s_487f31501aa218::t_bc0f2175799fb4 1-215
+mmdet3d/ops/spconv/pool.py
+  s_487f31501aa218::t_afa4b7ddef057a 1-81
+mmdet3d/ops/spconv/src/all.cc
+  s_487f31501aa218::t_1854db32e38db4 1-51
+mmdet3d/ops/spconv/src/indice.cc
+  s_487f31501aa218::t_d8a7d25fb344c1 1-85
+mmdet3d/ops/spconv/src/indice_cuda.cu
+  s_487f31501aa218::t_bf77a9955e2ec4 1-158
+mmdet3d/ops/spconv/src/maxpool.cc
+  s_487f31501aa218::t_59686cc701c778 1-82
+mmdet3d/ops/spconv/src/maxpool_cuda.cu
+  s_487f31501aa218::t_cc35903af611c2 1-478
+mmdet3d/ops/spconv/src/reordering.cc
+  s_487f31501aa218::t_aa97d5985852f8 1-69
+mmdet3d/ops/spconv/src/reordering_cuda.cu
+  s_487f31501aa218::t_8ecf7a0807d7e6 1-155
+mmdet3d/ops/spconv/structure.py
+  s_487f31501aa218::t_07baffdaab24cb 1-63
+mmdet3d/ops/spconv/test_utils.py
+  s_487f31501aa218::t_4672100ed062fc 1-184
+mmdet3d/ops/voxel/__init__.py
+  s_487f31501aa218::t_f3789ce39f38d8 1-4
+mmdet3d/ops/voxel/scatter_points.py
+  s_487f31501aa218::t_9c1108042efdec 1-104
+mmdet3d/ops/voxel/src/scatter_points_cpu.cpp
+  s_487f31501aa218::t_79a4816b097e5d 1-122
+mmdet3d/ops/voxel/src/scatter_points_cuda.cu
+  s_487f31501aa218::t_7382cdc57a4cff 1-310
+mmdet3d/ops/voxel/src/voxelization.cpp
+  s_487f31501aa218::t_d08f22f8c2902f 1-13
+mmdet3d/ops/voxel/src/voxelization.h
+  s_487f31501aa218::t_22548631f8f61f 1-142
+mmdet3d/ops/voxel/src/voxelization_cpu.cpp
+  s_487f31501aa218::t_478d3725626a7a 1-173
+mmdet3d/ops/voxel/src/voxelization_cuda.cu
+  s_487f31501aa218::t_8efae07e3f7742 1-530
+mmdet3d/ops/voxel/voxelize.py
+  s_487f31501aa218::t_8f23d15f02e70e 1-149
+mmdet3d/runner/__init__.py
+  s_487f31501aa218::t_07f5756a150b9b 1
+mmdet3d/runner/epoch_based_runner.py
+  s_487f31501aa218::t_67f76a2afc99a4 1-14
+mmdet3d/utils/__init__.py
+  s_487f31501aa218::t_3b12955d210c7f 1-7
+mmdet3d/utils/config.py
+  s_487f31501aa218::t_e2922b979e5e62 1-20
+mmdet3d/utils/logger.py
+  s_487f31501aa218::t_ec7dc9d2d51b85 1-47
+mmdet3d/utils/syncbn.py
+  s_487f31501aa218::t_882902b710ed82 1-16
+run_dist1.sh
+  s_487f31501aa218::t_8abfeeb49ed850 1-7
+run_sh/run25_5cls_lidar_only.sh
+  s_487f31501aa218::t_1e33ea5ead5b29 1-7
+run_sh/run8_5cls_lidar_only_noaug.sh
+  s_487f31501aa218::t_445e6a03e25f9f 1-6
+run_sh/run_dist.sh
+  s_487f31501aa218::t_4228e4b85d1bc9 1-10
+run_sh/run_dist2.sh
+  s_487f31501aa218::t_75870ca60c1c25 1-8
+runv4_debug.sh
+  s_487f31501aa218::t_d0aada98a9ea1e 1-92
+setup.cfg
+  s_487f31501aa218::t_5be3204a598228 1-9
+setup.py
+  s_487f31501aa218::t_d749dc3305f0f2 1-162
+tensor.py
+  s_487f31501aa218::t_bbff4276012b5d 1-72
+tools/DetEval/Det3DMetric.py
+  s_487f31501aa218::t_870c61bd04f777 1-900
+tools/DetEval/DetEvalPipeline.py
+  s_487f31501aa218::t_3d69efb35caedf 1-50
+tools/DetEval/DetMetricEvaluator.py
+  s_487f31501aa218::t_08b1113db11720 1-32
+tools/DetEval/DetResultParser.py
+  s_487f31501aa218::t_4253cb6d456bbd 1-82
+tools/DetEval/ScatterPlot.py
+  s_487f31501aa218::t_08423643b5c0de 1-123
+tools/DetEval/distribute.py
+  s_487f31501aa218::t_4b214d43779021 1-145
+tools/benchmark.py
+  s_487f31501aa218::t_a1e956cdd2864c 1-89
+tools/bev_result_to_detzero.py
+  s_487f31501aa218::t_56dd5c861160e8 1-46
+tools/calc_flops_2D.py
+  s_487f31501aa218::t_3f00907f0de607 1-131
+tools/calc_flops_3D.py
+  s_487f31501aa218::t_3f38ae976cc647 1-134
+tools/create_data.py
+  s_487f31501aa218::t_98a7addfff73e9 1-152
+tools/data_converter/create_gt_database.py
+  s_487f31501aa218::t_07f5ea4024e42e 1-370
+tools/data_converter/mogo_converter.py
+  s_487f31501aa218::t_e05017a00d9773 1-561
+tools/data_converter/nuscenes_converter.py
+  s_487f31501aa218::t_22b73cd13e56e2 1-751
+tools/data_converter/pick_data.py
+  s_487f31501aa218::t_b8096d1a1be077 1-214
+tools/dist_train.sh
+  s_487f31501aa218::t_ea9c74354eb416 1-21
+tools/download_pretrained.sh
+  s_487f31501aa218::t_9c2aace9c70e5d 1-10
+tools/export.py
+  s_487f31501aa218::t_d54f2f1ee67f27 1-109
+tools/export_2D.py
+  s_487f31501aa218::t_8bdd9ed8ce168f 1-192
+tools/export_3D.py
+  s_487f31501aa218::t_0fe28a88eab14f 1-196
+tools/map_metric.py
+  s_487f31501aa218::t_59feebfc54207e 1-806
+tools/map_metrics_dist.py
+  s_487f31501aa218::t_c5bd3145de46c2 1-916
+tools/map_metrics_dist_angle.py
+  s_487f31501aa218::t_f72c52e498612c 1-904
+tools/map_metrics_new.py
+  s_487f31501aa218::t_44b82407257a82 1-869
+tools/map_metrics_old.py
+  s_487f31501aa218::t_31a5ce4d462798 1-519
+tools/merge_pkl.py
+  s_487f31501aa218::t_0068575e294c8c 1-28
+tools/nms_lib/__init__.py
+  s_487f31501aa218::t_d3e43aaffe33c3 1-144
+tools/nms_lib/iou3d_nms_utils.py
+  s_487f31501aa218::t_10d23e5432081d 1-96
+tools/nms_lib/setup.py
+  s_487f31501aa218::t_b0a503a5057948 1-17
+tools/nms_lib/src/iou3d_cpu.cpp
+  s_487f31501aa218::t_72b89ab3410713 1-252
+tools/nms_lib/src/iou3d_cpu.h
+  s_487f31501aa218::t_0356f53092a31c 1-11
+tools/nms_lib/src/iou3d_nms.cpp
+  s_487f31501aa218::t_01696c46cd677d 1-188
+tools/nms_lib/src/iou3d_nms.h
+  s_487f31501aa218::t_e6b6de582fa239 1-14
+tools/nms_lib/src/iou3d_nms_api.cpp
+  s_487f31501aa218::t_0126a65921d1b1 1-17
+tools/nms_lib/src/iou3d_nms_kernel.cu
+  s_487f31501aa218::t_f4f902bff998ff 1-414
+tools/parse_det_npz.py
+  s_487f31501aa218::t_89f41db25df096 1-146
+tools/start_dist.py
+  s_487f31501aa218::t_9b941ef8b5013b 1-22
+tools/test.py
+  s_487f31501aa218::t_7cfbd5b14d438a 1-266
+tools/test_pkl.py
+  s_487f31501aa218::t_53cacb3f98d7d2 1-81
+tools/test_single_gpu.py
+  s_487f31501aa218::t_6a4764485e1bb8 1-255
+tools/test_single_gpu_bak.py
+  s_487f31501aa218::t_e39d88578e3b78 1-252
+tools/train.py
+  s_487f31501aa218::t_b8b0961b9527bb 1-108
+tools/train_sigle_gpu_ori.py
+  s_487f31501aa218::t_d2e40b31ef6a00 1-91
+tools/train_single_gpu.py
+  s_487f31501aa218::t_cefe46108a55fd 1-87
+tools/visualize.py
+  s_487f31501aa218::t_9c54dbf022c28a 1-185
+tools/visualize_5cls_bevfusion.py
+  s_487f31501aa218::t_507a927aadf966 1-272
+tools/visualize_5cls_bevfusion_falsedet_rain.py
+  s_487f31501aa218::t_4c5ef71f645766 1-339
+tools/visualize_5cls_centerpoint.py
+  s_487f31501aa218::t_8fd828eaeba50d 1-146
+train.sh
+  s_487f31501aa218::t_428d93eaa87426 1-62
+utils/nms.py
+  s_487f31501aa218::t_47bec2ee5d87a4 1-145
+valbank.py
+  s_487f31501aa218::t_2c5a1bb958f905 1-226
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "235e6ef85ffe5b8eebeba694d140d2430e0f9a2e",
+  "prompts": {},
+  "sessions": {
+    "s_487f31501aa218": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7bec2384-db56-42eb-8553-5f8b4531ffda",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "zhuning <zhuning@zhidaoauto.com>"
+    }
+  }
+}
